@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+
+.headbox{ width:100%; height:130px; overflow:hidden; background:top repeat-x url(../imges/headbj_02.jpg);}
+
+.logobox{ width:98%; height:auto; overflow:hidden; margin:5px 0px 0px 0px;}
+
+.logobox img{ float:left;}
+
+.logobox  div{ float:right; width:200px; height:auto;overflow:hidden; margin-top:20px;}
+
+.xiugai{ font-size:14px; color:#FFF; width:98px; height:27px; overflow:hidden; border:0; background:url(../imges/tophead_06.jpg) top no-repeat; padding-left:18px;}
+
+.tuichu{font-size:14px; color:#FFF; width:68px; height:27px; overflow:hidden; border:0; background:url(../imges/tophead_08.jpg) top no-repeat;padding-left:18px; margin-left:20px;}
+
+.navbox{ width:100%; height:30px; overflow:hidden; margin-top:17px;}
+
+.navbox a,.navbox a:visited{ display:block; float:left; width:113px; height:27px; line-height:27px; font-size:14px; color:#FFF; background:top no-repeat url(../imges/navbj_3.jpg);margin-left:10px;}
+
+.navbox a:hover{ display:block; float:left; width:113px; height:27px; line-height:27px; font-size:14px; color:#D20202; background:top no-repeat url(../imges/navbj_4.jpg);margin-left:10px;}
+
+.navbox h4{float:right; font-size:13px; font-weight:normal; color:#1C5582; margin:6px 10px 0px 30px;}
+
+.footbox{ width:100%; height:35px; overflow:hidden; background:top repeat-x url(../imges/footbj_03.jpg);}
+
+.footbox h4{font-size:14px; color:#FFF; text-align:center;height:35px; line-height:35px;}
+
+ .navbox a.current { display:block; float:left; width:113px; height:27px; line-height:27px; font-size:14px; color:#D20202;background:top no-repeat url(../imges/navbj_4.jpg)!important; background:top no-repeat url(../imges/atcv_03.jpg);margin-left:10px;}
+
+
+
+
+
+
+
+

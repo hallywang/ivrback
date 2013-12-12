@@ -1,0 +1,406 @@
+﻿
+img {border:0;}
+a.topMenu:link, a.topMenu:visited, a.topMenu:active {
+	/*color: #ff3300;
+	text-decoration: none;
+	font-size: 12px;
+	font-weight:bold;*/
+	color: Green;
+	text-decoration:none;
+	font-size: 12px;
+	font-weight:normal;
+}
+
+a.topMenu:hover {
+	/*color: #CC0000;
+	text-decoration: none;*/
+	text-decoration:underline;
+    color:#ff3300;
+}
+ul,li{
+	margin:0;padding:0;list-style-type:none;float:left;
+}
+
+#All{
+	width:1000px;
+    margin: 0 auto;
+}
+#Top{
+	width:100%;
+	height:104px;
+}
+#Caption{
+	width:100%;
+	height:29px;
+	background-image:url('../images/caption.jpg');
+	background-repeat:repeat-x;
+	color:White;
+	_margin-top:1px;
+	font-family:宋体;
+	
+}
+#WapTypeMenu li
+{
+    padding:1px 2px 3px 2px;
+    height:16px;
+    width:70px;
+    text-align:center;
+    overflow:hidden;
+    margin-left:8px;
+    cursor:pointer; 
+}
+.wapTypeMenu_Li1
+{
+   cursor:pointer;
+   /*background-color:#4DC901;*/
+   color:#D2FFD2;
+   }
+.wapTypeMenu_Li2
+{
+   /*border:1px solid green;*/
+   /*color:#006384;*/
+   color:#FF6600;
+   font-weight:bold;
+   cursor:pointer;
+   background-color:#BDEBA9;
+}
+.wapTypeMenu_Li3
+{
+	/*background-color:#4DC901;
+   border:1px solid  green;
+   font-weight:bold;*/
+   color:white;
+
+}
+#Top_1{
+	
+	width:100%;
+	height:97px;
+}
+#Top_2{
+	width:100%;
+	height:5px;
+	font-size:0px;
+}
+.logCase{
+	margin-left:10px;
+	float:left;
+	width:250px;
+	height:100%;
+	/*background-color:#BFFFFF;*/
+}
+.logCaseLeft{
+	float:left;
+	width:730px;
+	height:100%;
+	/*background-color:fuchsia;*/
+}
+#logCaseLeft_top{
+	height:50%;
+	/*background-color:gray;*/
+}
+
+#logCaseLeft_bottom{
+	height:50%;
+	/*background-color:blue;*/
+}
+#TopRegInfo ul li{
+    margin-left:12px;
+    font-family:宋体;
+    color:#ff3300;
+}
+
+#Menu{
+	float:left;
+	width:680px;
+	height:30px;
+	margin-top:18px;
+	_margin-top:17px;
+	line-height:30px;
+	color:white;
+	font-weight:bold;
+	text-align:center;
+	}
+#Center{
+	width:100%;
+	height:485px;
+	margin:5px 0 0 0;
+
+}
+#Bottom{
+	width:100%;
+	height:100px;
+	margin:15px 0 0 0;
+}
+#WapAddrCase{
+	float:left;
+	width:366px; /*================================================*/
+	/*border:1px solid;*/
+	height:100%;
+}
+#WapBrowCase{
+	float:left;
+	width:358px; /* ffffffffffffffffff=====================fffffffff350*/
+	/*border:1px solid;*/
+	height:100%;
+	margin-right:0px;
+	_margin-rigth:8px;
+	background-color:White;
+}
+#WapBrowMain{
+	width:350px;
+	height:480px;
+	border:1px solid #94E038;
+	float:left;
+
+	margin-left:7px;
+
+}
+#WapInfoCase{
+	float:left;
+	width:250px;
+	height:100%;
+	margin-left:8px;
+
+}
+#wapBrowtitle{
+	float:left;
+	font-family:微软雅黑;
+	padding-left:2px;
+	color:black;
+	overflow:hidden;
+	text-align:center;
+	height:20px;
+	width:88%;
+}
+#inputCase{
+	height:20px;
+	width:270px;
+	margin:3px 0 0 2px;
+	border:1px solid #C7EDA5;
+	background-color:white;
+	float:left;
+}
+#wapBrowInput{
+	width:250px;
+	height:16px;
+	border:0px;
+	float:left;
+	font-family:微软雅黑,宋体;
+}
+#wapTools li{
+	margin-top:3px;
+	height:18px;
+	border:1px;
+	padding:1px;
+	margin-left:3px;
+}
+#About li{
+	margin:0 6px 0 6px;
+	float:none;
+}
+#HotUrl{
+	width:265px;
+	border:1px solid #94E038;
+	height:273px;
+	background-color:#FFF;
+}
+#HotUrl li{
+    overflow:hidden;
+}
+#FavUrl{
+	margin:5px 0 0 0;
+	width:265px;
+	border:1px solid #94E038;
+	height:200px;
+    background-color:#FFF;
+
+}
+#WapBroStatu
+{
+    height:20px;
+    background-color:#ffffff;
+    border-top:1px solid #94E038;
+    text-align:left;
+    line-height:26px;
+    color:#3434D0;
+    overflow:hidden;
+    width:100%;
+    padding-top:3px;
+    white-space:nowrap;
+
+
+}
+#HotWap
+{
+    color:#015612;
+	font-family:Arial;
+	padding-top:1px;
+
+}
+#HotWap ul
+{
+    border-bottom:1px solid #E6F7D7;
+}
+#HotWap li
+{
+    height:20px;*height:19px;/*_height:15px;*/
+    padding-top:1px;
+    overflow:hidden;
+}
+#FavWap
+{
+    color:#015612;
+	font-family:Arial;
+	padding-top:1px;
+
+}
+#FavWap ul
+{
+    border-bottom:1px solid #E6F7D7;
+}
+#FavWap li
+{
+    height:19px;/*_height:15px;*/
+    padding-top:1px;
+    overflow:hidden;
+    margin:0px 2px 1px 2px;
+    width:125px;
+}
+/*页面背景颜色css start*/
+.MainbgColor{
+	background-color:#E6F7D7;
+}
+.broCap{
+	background-color:#B8E88C;
+}
+.broTool{
+	background-color:#E6F7D7;
+}
+.broInputCase{
+	background-color:#F2FBEA;
+}
+.topColor{
+	background-color:#E6F7D7;
+}
+.menuBgColor{
+	background-color:#5FBF16;
+}
+/*End*/
+/*栏目标题*/
+.capCss{
+	background-color:#E6F7D7;
+	height:25px;
+	line-height:25px;
+	padding-left:2px;
+	border-bottom:1px solid #94E038;
+	font-weight:bold;
+	color:#004F88;
+}
+/*End*/
+/*页面边框颜色css start*/
+
+/*End*/
+.menuChild{
+	float:left;
+	width:80px;
+	margin-left:5px;
+	margin-top:2px;
+	_margin-top:5px;
+	height:29px;
+	
+	_padding-top:3px;
+	}
+
+.def{
+	background-color:gray;
+	cursor:pointer;
+	
+}
+.sel{
+	background-color:#5FBF16;
+}
+.wapAddr{
+	width:363px;
+	height:480px;
+	border:1px solid #94E038;
+}
+.wapAddr_con{
+	height:423px;
+	border-bottom:1px solid #94E038;
+	color:#015612;
+	font-family:Arial;
+	font-size:12px;
+	padding:4px 2px 2px 2px;
+    background-color:White;
+}
+.wapAddr_con ul
+{
+   border-bottom:1px solid #E6F7D7;
+}
+.wapAddr_con li
+{
+    height:20px;
+    padding-top:2px;
+    overflow:hidden;
+    white-space:nowrap;
+    margin-left:4px;
+    
+}
+.wapAddr_bom{
+	width:361px;
+	height:22px;
+	background-color:#F0FAE7;
+	padding-top:2px;
+	padding-left:2px;
+}
+
+.wapBrow_cap{
+	height:22px;
+	line-height:22px;
+	padding-left:3px;
+	border-bottom:1px solid #94E038;
+	}
+.wapBrow_tool{
+	height:25px;
+	border-bottom:1px solid #C7EDA5;
+	padding-left:0px;
+}
+.wapBrow_input{
+	height:28px;
+	border-bottom:1px solid #C7EDA5;
+}
+.wapBrow_tools{
+	float:left;
+	margin-right:2px;
+	font-family:宋体;
+}
+.WapBrowser
+{
+    margin:1px 1px 1px 1px;
+    padding:1px 1px 1px 1px;
+    height:77%;
+}
+.zcCap{
+	height:20px;
+	line-height:20px;
+	border-bottom:1px solid #94E038;
+	color:black;
+}
+.aboutBord{
+	border-top:1px solid gray;
+
+}
+.setWindowTitle
+{
+    background:url(../images/settbg.jpg) no-repeat;
+    text-align:left;padding:5px 0 0 5px;height:26px;
+    color:#004F7D;
+    font-family:宋体;
+    font-weight:bold;
+    font-size:12px;
+}
+.wapAddrInput1_{
+	color:gray;
+	font-size:12px;
+}

@@ -1,0 +1,176 @@
+body {
+    background-color: #FFFFFF;
+    margin: 0px;
+    padding: 0px;
+
+}
+
+a:link {
+    color: #009;
+}
+
+a:visited {
+    color: #800080;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover, a:active, a:focus {
+    color: #FFFFFF;
+    background: #3080CB;
+}
+
+textarea {
+    width: 93%;
+}
+
+div.dh a:hover, div.dh a:focus, div.dh a:active {
+    color: #FFFFFF;
+}
+
+div.bg a:hover, div.bg a:focus, div.bg a:active {
+    color: #FFFFFF;
+}
+
+span.co {
+    color: #03005C;
+}
+
+span.bk {
+    color: #000000;
+}
+
+p {
+    margin: 0
+}
+
+.bd {
+    border: 1px black solid
+}
+
+/*正文title*/
+div.tit {
+    border-bottom: 1px #3080CB solid;
+    background-color: #FFFFFF;
+    line-height: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+/*横线控制*/
+div.hx {
+    border-bottom: 1px #3080CB solid;
+}
+
+div.bg {
+    width: 100%;
+    line-height: 18px;
+    vertical-align: middle;
+    padding-top: 5px;
+    padding-right: 0;
+    padding-bottom: 5px;
+    padding-left: 0;
+    margin-left: 5px;
+}
+
+div.bg a {
+    color: #000000;
+}
+
+div.dh {
+    border-bottom: 1px solid #3080CB;
+    padding: 5px 0 2px 0;
+    line-height: 18px;
+    vertical-align: middle;
+    text-align: left;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+div.dh a {
+    color: #000000;
+}
+
+div.ct {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+div.mg {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+div.comm {
+    margin: 5px;
+    border: solid 1px #E5E5E5
+}
+
+div.content {
+    margin-left: 5px;
+}
+
+.w {
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    padding: 10px 2px 0px;
+}
+
+.t {
+    border: 1px solid #ccc;
+    border-width: 1px 0;
+    padding: 5px 3px;
+}
+
+.t1 {
+    padding: 3px 2px;
+    line-height: 20px;
+    text-indent: -16px;
+    padding-left: 18px;
+}
+
+.c {
+    line-height: 20px;
+    text-indent: -22px;
+    padding-left: 40px;
+}
+
+.b {
+    text-align: center;
+    padding: 5px 0;
+}
+
+.l {
+    height: 11px;
+    background: url(images/1a3650e3.gif) repeat-x 0 6px;
+}
+
+.l2 {
+    overflow: hidden;
+    height: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+.comm {
+    padding: 3px 5px;
+}
+
+.user {
+    padding: 10px 1px 0;
+    background: url(images/fa513c4e.png) top repeat-x;
+    margin-top: 6px;
+    color: #666
+}
+
+.user_wd {
+    padding: 3px 1px 6px
+}
+
+.comment {
+    padding: 8px 0 0 0;
+}

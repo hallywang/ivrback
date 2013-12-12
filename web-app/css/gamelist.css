@@ -1,0 +1,24 @@
+
+/* css reset */
+body{margin:0;padding:0;color:#333}
+*{line-height:18px;font-size:12px}
+p,ul,h1,h2,form{margin:0;padding:0}
+li{list-style:none}
+img{border:0}
+a{color:#039;text-decoration:underline}
+a:hover{color:#f00;text-decoration:none}
+p{padding:0 5px}
+#wrap{width:93%;background:#fafafa;border:5px solid #ededed;margin:0 auto}
+h2{margin:0 5px;border-bottom:1px solid #e2e2e2;font-weight:normal}
+ul{margin:0px 0px 15px 5px}.p{background:url(images/13dea75b.gif) top repeat-x #ebebeb;border:solid #d9d9d9;border-width:1px 0 1px 0;line-height:25px;}
+.p,.p a{color:#575757}
+.p a:hover{color:#f00}
+.f{border:1px solid #ededed;padding:5px;margin:0 5px}
+.i_t{border:1px solid #b3b9c3}
+.b1{background:url(images/c94a7f5b.jpg) no-repeat;width:46px;height:19px;border:none;cursor:pointer}
+.top{text-align:center}
+.foot{background:#ededed;text-align:center;padding:10px 0;color:#747474}
+.foot a{color:#000}
+.foot a:hover{color:#f00}
+.f1{font-family:Arial}
+a.d1{background:url(images/9e440e80.gif) no-repeat 0 0px;padding-left:13px;}

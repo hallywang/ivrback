@@ -1,0 +1,17 @@
+/* CSS Document */
+/*html{ background:url(../images/bbj.jpg) repeat;}*/
+html{}
+* {vertical-align: baseline; font-weight: inherit; font-family: inherit; font-style: inherit; font-size: 100%; outline: 0; padding: 0; margin: 0; border: 0; }
+body { font-family:'宋体', System, Arial; font-size:12px; margin:0 auto; }
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td, img { padding: 0; margin: 0; }
+address, caption, cite, code, dfn, em, strong, th, var { font-weight: normal; font-style: normal; }
+h1, h2, h3, h4, h5, h6 { font-weight: normal; font-size: 100%; }
+table { border-collapse: collapse; border-spacing: 0; }
+caption, th { text-align: left; }
+fieldset, img { border: 0; }
+ol, ul { list-style: none; }
+.clear{ clear:both;}
+.fr{ float:right;}
+.fl{ float:left;}
+a{ text-decoration:none;}
+a:hover{text-decoration:none;}

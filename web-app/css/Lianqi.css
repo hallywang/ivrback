@@ -1,0 +1,103 @@
+﻿.CNE1
+{
+	width:465px;
+	float:left;
+
+	overflow:hidden;
+	height:529px;}
+.Cne1_1
+{
+	width:112px;
+	float:left;
+	overflow:hidden;
+	margin-top:8px;
+	height:418px;}
+
+
+
+.ts{left:25px; top:38px; position:absolute;}
+
+.bo1
+{
+	height:97px;
+	width:465px;
+	float:left;
+	overflow:hidden;}
+.bo1_1
+{
+	height:71px;
+	width:465px;
+	overflow:hidden;
+	margin-left:4px;
+	float:left;}	
+
+.bo1_2
+{
+	height:71px;
+	width:70px;
+	overflow:hidden;
+	float:left;}
+.bo1_3
+{
+	height:60px;
+	width:125px;
+	margin-top:7px;
+	float:left;
+	overflow:hidden;}	
+.bo1_4
+{
+	height:20px;
+	width:465px;
+	float:left;
+	color:Red;
+	text-align:left;
+	overflow:hidden;}	
+.right1
+{
+	width:45px;
+	float:left;
+	overflow:hidden;
+	height:515px;}	
+.right2
+{
+	width:459px;
+	float:left;
+	overflow:hidden;
+	height:515px;}	
+.right2_1
+{
+	width:380px;
+	height:119px;
+	float:left;
+	overflow:hidden;
+	}	
+.right2_3
+{
+	height:28px;
+	float:left;
+	overflow:hidden;
+	text-align:left;
+	color:#FF0000;
+	font-size:14px;
+	font-weight:bold;
+	line-height:26px;
+	 background:url(/images/bin.gif) left bottom no-repeat;
+	width:370px;}
+	
+.right2_4
+{
+	width:370px;
+	height:80px;
+	float:left;
+	color:#3155A5;
+	overflow:hidden;
+	
+	font-size:14px;
+	line-height:20px;
+	text-align:left;}	
+.right2_5
+{
+	width:370px;
+	height:20px;
+	float:left;
+	overflow:hidden;}				
