@@ -1,4 +1,11 @@
-/.idea
-/*.war
-/out
-/target
+target/
+Log/
+logs/
+.idea/
+*.iml
+build/
+out/
+.gradle/
+gradle/
+gradlew
+gradlew.bat
