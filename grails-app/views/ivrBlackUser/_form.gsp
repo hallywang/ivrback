@@ -36,7 +36,7 @@
         </label>
     </td>
     <td valign="top" class="value">
-        <g:field name="scope" type="number" value="${ivrBlackUserInstance.scope}" required=""/>
+        <g:textField name="scope" required="" value="${ivrBlackUserInstance?.scope}"/>
     </td>
 </tr>
 

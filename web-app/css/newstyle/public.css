@@ -9,9 +9,9 @@
 
 .landBox  .centerMatter{ width:843px; height:auto; overflow:hidden; margin:0 auto;} 
 
-.centerMatter  .logo{ width:843px; height:117px; overflow:hidden; background:top no-repeat url(../imges/icon/2wde_07.jpg);}
+.centerMatter  .logo{ width:843px; height:117px; overflow:hidden; }
 
-.centerMatter  .title{ width:843px; height:114px; overflow:hidden; background:top no-repeat url(../imges/icon/2wde_08.jpg);}
+.centerMatter  .title{ width:843px; height:114px; overflow:hidden; }
 
 .centerMatter  .LoginBox{width:843px; height:256px; overflow:hidden; background:top no-repeat url(../imges/icon/2wde_09.jpg);}
 

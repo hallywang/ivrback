@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <title>游戏cms</title>
+  <title>管理后台</title>
 </head>
 <frameset rows="*" cols="250,15,*" id="left" framespacing="0" frameborder="no" border="0">
   <frame src="main/leftMenu" name="leftFrame" noresize="noresize" id="leftFrame" />

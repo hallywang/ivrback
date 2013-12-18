@@ -4,8 +4,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean name="memcachedClientBuilder" class="net.rubyeye.xmemcached.XMemcachedClientBuilder">
-        <!-- XMemcachedClientBuilder have two arguments.First is server list,and second is weights array. -->
+   <!-- <bean name="memcachedClientBuilder" class="net.rubyeye.xmemcached.XMemcachedClientBuilder">
+        &lt;!&ndash; XMemcachedClientBuilder have two arguments.First is server list,and second is weights array. &ndash;&gt;
         <constructor-arg>
             <list>
                 <bean class="java.net.InetSocketAddress">
@@ -55,10 +55,10 @@
         </property>
     </bean>
 
-    <!-- Use factory bean to build memcached client -->
+    &lt;!&ndash; Use factory bean to build memcached client &ndash;&gt;
     <bean name="memcachedClient" factory-bean="memcachedClientBuilder" factory-method="build"
           destroy-method="shutdown">
         <property name="opTimeout" value="30000"/>
     </bean>
-
+-->
 </beans>

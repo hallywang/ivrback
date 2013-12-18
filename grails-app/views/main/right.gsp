@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <title>中国移动手机游戏基地</title>
+  <title>管理后台</title>
   <link href="${request.contextPath}/css/admin.css" rel="stylesheet" type="text/css"/>
   <link href="${request.contextPath}/css/theme.css" rel="stylesheet" type="text/css"/>
 </head>

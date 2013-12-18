@@ -115,8 +115,8 @@
         </div>
       </form>
     </div>
-    <div class="footBox"><span>版权所有:中国移动通信集团&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;技术支持：幻方朗睿软件科技有限公司</span></div>
-  </div>
+    %{--<div class="footBox"><span>版权所有:中国移动通信集团&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;技术支持：幻方朗睿软件科技有限公司</span></div>
+ --}% </div>
 </div>
 
 </body>

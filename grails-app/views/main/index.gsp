@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>中国移动手机游戏应用管理平台</title>
+  <title>后台管理系统</title>
   <link rel="stylesheet" type="text/css" href="${request.contextPath}/css/newstyle/css.css"/>
   <link rel="stylesheet" type="text/css" href="${request.contextPath}/css/newstyle/head.css"/>
 
@@ -125,13 +125,13 @@
 <!--头部-->
 <div class="headbox" id="top">
   <div class="logobox">
-    <img src="${request.contextPath}/css/imges/tophead_03.jpg" width="841" height="67"/>
-
     <div>
       <input class="xiugai" name="" type="button" onclick="editPwd()" value="修改密码"/><input class="tuichu" name=""
                                                                                            onclick="logout()"
                                                                                            type="button" value="退出"/>
     </div>
+
+    <div style="width: 841px;height: 50px;font-size:35px; color:#FFF;">语音管理后台系统</div>
   </div>
   <!--导航栏 -->
   <div class="navbox">
@@ -201,7 +201,7 @@
         style="width:100%;height: 350px;"></iframe>
 <!--尾部-->
 <div class="footbox">
-  <h4>Power by 幻方朗睿 Copyright © 2010-2015</h4>
+  <h4>Powered by hally Copyright © 2014-2018</h4>
 </div>
 <!--尾部END-->
 </body>
