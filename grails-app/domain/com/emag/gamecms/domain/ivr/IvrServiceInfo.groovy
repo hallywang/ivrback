@@ -12,6 +12,12 @@ class IvrServiceInfo {
   Date createTime
   Date updateTime
 
+
+  static mapping = {
+    table 't_ivr_service_info'
+    version false
+  }
+
   static constraints = {
     serviceName size: 1..40, blank: false
     serviceId size: 1..40, blank: false

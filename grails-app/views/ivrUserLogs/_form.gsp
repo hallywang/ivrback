@@ -6,13 +6,37 @@
     
 <tr class="prop">
     <td valign="top" class="name">
+        <label for="msisdn">
+            <g:message code="ivrUserLogs.msisdn.label" default="Msisdn"/>
+            <span class="required-indicator">*</span>
+        </label>
+    </td>
+    <td valign="top" class="value">
+        <g:textField name="msisdn" maxlength="20" required="" value="${ivrUserLogsInstance?.msisdn}"/>
+    </td>
+</tr>
+
+<tr class="prop">
+    <td valign="top" class="name">
+        <label for="serviceId">
+            <g:message code="ivrUserLogs.serviceId.label" default="Service Id"/>
+            
+        </label>
+    </td>
+    <td valign="top" class="value">
+        <g:textField name="serviceId" maxlength="40" value="${ivrUserLogsInstance?.serviceId}"/>
+    </td>
+</tr>
+
+<tr class="prop">
+    <td valign="top" class="name">
         <label for="callNumber">
             <g:message code="ivrUserLogs.callNumber.label" default="Call Number"/>
             
         </label>
     </td>
     <td valign="top" class="value">
-        <g:textField name="callNumber" value="${ivrUserLogsInstance?.callNumber}"/>
+        <g:textField name="callNumber" maxlength="40" value="${ivrUserLogsInstance?.callNumber}"/>
     </td>
 </tr>
 
@@ -61,30 +85,6 @@
     </td>
     <td valign="top" class="value">
         <g:datePicker name="endTime" precision="day"  value="${ivrUserLogsInstance?.endTime}"  />
-    </td>
-</tr>
-
-<tr class="prop">
-    <td valign="top" class="name">
-        <label for="msisdn">
-            <g:message code="ivrUserLogs.msisdn.label" default="Msisdn"/>
-            
-        </label>
-    </td>
-    <td valign="top" class="value">
-        <g:textField name="msisdn" value="${ivrUserLogsInstance?.msisdn}"/>
-    </td>
-</tr>
-
-<tr class="prop">
-    <td valign="top" class="name">
-        <label for="serviceId">
-            <g:message code="ivrUserLogs.serviceId.label" default="Service Id"/>
-            
-        </label>
-    </td>
-    <td valign="top" class="value">
-        <g:textField name="serviceId" value="${ivrUserLogsInstance?.serviceId}"/>
     </td>
 </tr>
 

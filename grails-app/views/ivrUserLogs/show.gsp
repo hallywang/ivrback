@@ -22,6 +22,28 @@
         <table>
           <tbody>
             
+            <g:if test="${ivrUserLogsInstance?.msisdn}">
+                <tr class="prop">
+                    <td valign="top" class="name"><span id="msisdn-label" class="property-label"><g:message code="ivrUserLogs.msisdn.label" default="Msisdn" /></span></td>
+                    <td valign="top" class="value">
+                        
+                        <span class="property-value" aria-labelledby="msisdn-label"><g:fieldValue bean="${ivrUserLogsInstance}" field="msisdn"/></span>
+                        
+                    </td>
+                </tr>
+            </g:if>
+            
+            <g:if test="${ivrUserLogsInstance?.serviceId}">
+                <tr class="prop">
+                    <td valign="top" class="name"><span id="serviceId-label" class="property-label"><g:message code="ivrUserLogs.serviceId.label" default="Service Id" /></span></td>
+                    <td valign="top" class="value">
+                        
+                        <span class="property-value" aria-labelledby="serviceId-label"><g:fieldValue bean="${ivrUserLogsInstance}" field="serviceId"/></span>
+                        
+                    </td>
+                </tr>
+            </g:if>
+            
             <g:if test="${ivrUserLogsInstance?.callNumber}">
                 <tr class="prop">
                     <td valign="top" class="name"><span id="callNumber-label" class="property-label"><g:message code="ivrUserLogs.callNumber.label" default="Call Number" /></span></td>
@@ -72,28 +94,6 @@
                     <td valign="top" class="value">
                         
                         <span class="property-value" aria-labelledby="endTime-label"><g:formatDate date="${ivrUserLogsInstance?.endTime}" /></span>
-                        
-                    </td>
-                </tr>
-            </g:if>
-            
-            <g:if test="${ivrUserLogsInstance?.msisdn}">
-                <tr class="prop">
-                    <td valign="top" class="name"><span id="msisdn-label" class="property-label"><g:message code="ivrUserLogs.msisdn.label" default="Msisdn" /></span></td>
-                    <td valign="top" class="value">
-                        
-                        <span class="property-value" aria-labelledby="msisdn-label"><g:fieldValue bean="${ivrUserLogsInstance}" field="msisdn"/></span>
-                        
-                    </td>
-                </tr>
-            </g:if>
-            
-            <g:if test="${ivrUserLogsInstance?.serviceId}">
-                <tr class="prop">
-                    <td valign="top" class="name"><span id="serviceId-label" class="property-label"><g:message code="ivrUserLogs.serviceId.label" default="Service Id" /></span></td>
-                    <td valign="top" class="value">
-                        
-                        <span class="property-value" aria-labelledby="serviceId-label"><g:fieldValue bean="${ivrUserLogsInstance}" field="serviceId"/></span>
                         
                     </td>
                 </tr>

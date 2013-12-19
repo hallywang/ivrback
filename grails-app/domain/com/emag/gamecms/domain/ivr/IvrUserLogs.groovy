@@ -10,5 +10,14 @@ class IvrUserLogs {
   Date createTime
 
   static constraints = {
+    msisdn size:1..20,blank:false,nullable:false
+    serviceId size:1..40,blank:true,nullable:true
+    callNumber size:1..40, blank:true,nullable:true
+
+  }
+
+  static mapping = {
+    table 't_ivr_user_logs'
+    version false
   }
 }

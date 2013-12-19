@@ -13,6 +13,7 @@ class IvrBlackUser {
 
   static mapping = {
     table 't_ivr_black_user'
+    version false
   }
 
   static constraints = {
