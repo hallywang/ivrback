@@ -23,10 +23,10 @@ class IvrServiceInfo {
     serviceId size: 1..40, blank: false
     serviceDesc size: 1..80, blank: true, nullable: true
     feeType size: 1..20, blank: true, nullable: true
-    fee blank: true, nullable: true
+    fee nullable: true
     serviceType size: 1..20, blank: true, nullable: true
-    startTime blank: true, nullable: true
-    endTime blank: true, nullable: true
+    startTime nullable: true
+    endTime nullable: true
 
   }
 

@@ -18,9 +18,9 @@ class IvrBlackUser {
 
   static constraints = {
     msisdn size:1..20,blank:false,nullable:false,unique: 'scope'
-    userType blank:true,nullable:true
+    userType nullable:true
     scope blank:false,nullable:false
-    status blank:false,nullable:false
+    status nullable:false
     comment size:1..40,blank:true,nullable:true
   }
 
