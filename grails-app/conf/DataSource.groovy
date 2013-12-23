@@ -16,8 +16,8 @@ hibernate {
 environments {
   development {
     dataSource {
-     dbCreate = "update" // one of 'create', 'create-drop','update'
-      url = "jdbc:mysql://192.168.167.125:3306/wapbase"
+     //dbCreate = "update" // one of 'create', 'create-drop','update'
+      url = "jdbc:mysql://192.168.167.125:3306/wapbase?useunicode=true&characterEncoding=UTF-8"
       username = "sns"
       password = "emagtestsns"
     }

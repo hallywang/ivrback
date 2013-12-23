@@ -9,9 +9,16 @@ class IvrServiceInfo {
   String serviceType //如 互动类，收听类等
   Date startTime
   Date endTime
-  Date createTime
-  Date updateTime
+  Date createTime = new Date()
+  Date updateTime = new Date()
 
+  def beforeInsert () {
+    createTime = new Date()
+  }
+
+  def beforeUpdate () {
+    updateTime = new Date()
+  }
 
   static mapping = {
     table 't_ivr_service_info'
@@ -30,11 +37,5 @@ class IvrServiceInfo {
 
   }
 
-  def beforeInsert() {
-    createTime = new Date()
-  }
 
-  def beforeUpdate() {
-    updateTime = new Date()
-  }
 }
