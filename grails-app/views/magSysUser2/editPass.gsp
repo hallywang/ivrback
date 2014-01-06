@@ -8,7 +8,7 @@
 <body>
 
 <div class="nav">
-     <span class="menuButton"><g:link class="list" action="edit" id="${userInfo.id}" >修改资料</g:link></span>
+   %{--  <span class="menuButton"><g:link class="list" action="edit" id="${userInfo.id}" >修改资料</g:link></span>--}%
 </div>
 
 <div class="body">

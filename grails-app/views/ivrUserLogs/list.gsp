@@ -62,8 +62,7 @@
       <g:each in="${ivrUserLogsInstanceList}" status="i" var="ivrUserLogsInstance">
         <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
-          <td><g:link action="show"
-                      id="${ivrUserLogsInstance.id}">${fieldValue(bean: ivrUserLogsInstance, field: "msisdn")}</g:link></td>
+          <td>${fieldValue(bean: ivrUserLogsInstance, field: "msisdn")}</td>
 
           <td>${fieldValue(bean: ivrUserLogsInstance, field: "serviceId")}</td>
 
