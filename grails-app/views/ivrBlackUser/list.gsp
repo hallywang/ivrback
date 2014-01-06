@@ -17,6 +17,23 @@
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
+
+          <g:form name="myForm" action="list" method="get">
+            <div class="list">
+
+                  手机号：<g:textField name="msisdn" value="${params['msisdn']}" maxlength="20" style="width:120px;"/>&nbsp;
+                  是否生效：<g:select name="status" from="${[1,0]}" valueMessagePrefix="ivrBlackUser.status" value="${params?.status}"/>
+                  业务代码：<g:select name="scope" from="${com.emag.gamecms.domain.ivr.IvrServiceInfo.list()}"
+                                optionKey="serviceId"
+                                value="${params?.scope}" optionValue="serviceId"
+                                noSelection="${['0' : '-- 全局 --']}"/>
+
+              <span class="button"><input class="save" type="submit" value="查询" /></span><br/>
+
+
+            </div>
+          </g:form>
+
 			<div class="list">
 				<table>
 					<thead>
@@ -58,7 +75,7 @@
 				</table>
 			</div>
 			<div class="paginateButtons">
-				<g:paginate total="${ivrBlackUserInstanceTotal}" />
+				<g:paginate total="${ivrBlackUserInstanceTotal}" params="${params}" />
 			</div>
 		</div>
 	</body>

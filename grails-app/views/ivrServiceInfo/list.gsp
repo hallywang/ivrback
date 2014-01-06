@@ -17,6 +17,20 @@
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
+
+          <g:form name="myForm" action="list" method="get">
+            <div class="list">
+
+              业务代码：<g:textField name="serviceId" value="${params['serviceId']}" maxlength="20" style="width:120px;"/>&nbsp;
+              业务名称：<g:textField name="serviceName" value="${params['serviceName']}" maxlength="20" style="width:120px;"/>&nbsp;
+
+              <span class="button"><input class="save" type="submit" value="查询" /></span><br/>
+
+
+            </div>
+          </g:form>
+
+
 			<div class="list">
 				<table>
 					<thead>
@@ -58,7 +72,7 @@
 				</table>
 			</div>
 			<div class="paginateButtons">
-				<g:paginate total="${ivrServiceInfoInstanceTotal}" />
+				<g:paginate total="${ivrServiceInfoInstanceTotal}" params="${params}"/>
 			</div>
 		</div>
 	</body>

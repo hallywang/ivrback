@@ -23,7 +23,26 @@ class MagSysUser2Controller {
     if (!params.max) {
       params.max = 10
     }
-    [personList: MagSysUser2.list(params)]
+     def persons =   MagSysUser2.createCriteria().list(params){
+         //添加查询条件
+         if(params.username){
+             like('username',"%${params.username}%")
+  }
+         if(params.userRealName){
+             like('userRealName',"%${params.userRealName}%")
+         }
+         if(params.deptId){
+             eq('dept.id',Long.parseLong(params.deptId))
+         }
+         if(params.mobile){
+             eq('mobile',params.mobile)
+         }
+         if(params.description){
+             like('description',"%${params.description}%")
+         }
+     }
+     MagSysUser2 loginUser = MagSysUser2.get(((MagSysUser2) session.loginUser).id)
+    [deptList: getDeptList(loginUser),personList: persons,personsTotalCoun:persons?.totalCount]
   }
 
   def show = {

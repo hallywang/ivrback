@@ -14,6 +14,31 @@
 			<g:if test="${flash.message}">
 			<div class="message">${flash.message}</div>
 			</g:if>
+            <g:form name="myForm" action="list" method="get">
+
+                <div class="list">
+                    <tr>
+                        <td>
+                            名称<g:textField name="name" value="${params['name']}" maxlength="11" style="width:80px;"/>&nbsp;
+                            上级菜单
+                            <select name="fatherId" id="fatherId">
+                             <option value="">---请选择---</option>
+                             <g:each in="${MagSysRequestmap.findAllByStatusAndLeaf(1,0)}" status="i" var="cc">
+                                <g:if test="${cc.id.toString().equals(params['fatherId'])}">
+                                    <option value="${cc.id}" selected="selected" >${cc.id},${cc.name},${cc.url}</option>
+                                </g:if>
+                                <g:else>
+                                    <option value="${cc.id}" >${cc.id},${cc.name},${cc.url}</option>
+                                </g:else>
+                            </g:each>
+                           </select> &nbsp;
+                            REAL URL<g:textField name="realUrl" value="${params['realUrl']}" maxlength="20" style="width:80px;"/>&nbsp;
+                            角色<g:textField name="configAttribute" value="${params['configAttribute']}" maxlength="20" style="width:80px;"/>&nbsp;
+                            <span class="button"><input class="save" type="submit" value="查询" /></span><br/>
+                        </td>
+                    </tr>
+                </div>
+            </g:form>
 			<div class="list">
 				<table>
 				<thead>
@@ -67,7 +92,7 @@ org.springframework.util.StringUtils.commaDelimitedListToStringArray(requestmap.
 			</div>
 
 			<div class="paginateButtons">
-				<g:paginate total="${MagSysRequestmap.count()}" />
+				<g:paginate total="${requestmapTotalCount}"  params="${params}" />
 			</div>
 
 		</div>

@@ -17,7 +17,19 @@ class MagSysDeptController {
     if (!params.max) {
       params.max = 10
     }
-    [deptList: MagSysDept.list(params)]
+    def  depts =MagSysDept.createCriteria().list(params){
+        //添加查询条件
+       if(params.deptName){
+           like('deptName',"%${params.deptName}%")
+       }
+        if(params.deptCode){
+            like('deptCode',"%${params.deptCode}%")
+        }
+        if(params.description){
+            like('description',"%${params.description}%")
+        }
+      }
+    [deptList: depts,deptsTotalCount:depts?.totalCount]
   }
 
   def show = {

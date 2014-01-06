@@ -17,6 +17,20 @@
   <g:if test="${flash.message}">
     <div class="message">${flash.message}</div>
   </g:if>
+    <g:form name="myForm" action="list" method="get">
+  <div class="list">
+            <tr>
+                <td>
+                    登陆名<g:textField name="username" value="${params['username']}" maxlength="11" style="width:80px;"/>&nbsp;
+                    真实姓名 <g:textField name="userRealName" value="${params['userRealName']}" maxlength="11" style="width:80px;"/>  &nbsp;
+                    所属部门<g:select name="deptId" from="${deptList}"  optionValue="deptName" noSelection="['':'--请选择所属部门--']" optionKey="id" value="${params.deptId}"/>&nbsp;
+                    手机号<g:textField name="mobile" value="${params['mobile']}" maxlength="20" style="width:80px;"/>&nbsp;
+                    描述<g:textField name="description" value="${params['description']}" maxlength="20" style="width:80px;"/>&nbsp;
+                    <span class="button"><input class="save" type="submit" value="查询" /></span><br/>
+                </td>
+            </tr>
+        </div>
+    </g:form>
   <div class="list">
     <table>
       <thead>
@@ -24,6 +38,7 @@
         <g:sortableColumn property="id" title="编号"/>
         <g:sortableColumn property="username" title="登录名"/>
         <g:sortableColumn property="userRealName" title="真实姓名"/>
+        <th>SP厂商</th>
         <th>所属部门</th>
         <g:sortableColumn property="enabled" title="是否有效"/>
         <g:sortableColumn property="mobile" title="手机号"/>
@@ -39,6 +54,7 @@
             <td>${person.id}</td>
             <td>${person.username?.encodeAsHTML()}</td>
             <td>${person.userRealName?.encodeAsHTML()}</td>
+            <td>${person?.factory?.toString()}</td>
             <td>${person?.dept?.deptName}</td>
             <td>${person.enabled?.encodeAsHTML()}</td>
             <td>${person.mobile?.encodeAsHTML()}</td>
@@ -58,7 +74,7 @@
   </div>
 
   <div class="paginateButtons">
-    <g:paginate total="${MagSysUser2.count()}"/>
+    <g:paginate total="${personsTotalCoun}"  params="${params}"/>
   </div>
 
 </div>

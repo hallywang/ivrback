@@ -13,7 +13,21 @@ class IvrBlackUserController {
 
   def list(Integer max) {
     params.max = Math.min(max ?: 10, 100)
-    [ivrBlackUserInstanceList: IvrBlackUser.list(params), ivrBlackUserInstanceTotal: IvrBlackUser.count()]
+
+    def  users =IvrBlackUser.createCriteria().list(params){
+      //添加查询条件
+      if(params.msisdn){
+        like('msisdn',"%${params.msisdn}%")
+      }
+      if(params.scope){
+        eq('scope',"${params.scope}")
+      }
+      if(params.status){
+        eq('status',Integer.parseInt(params.status))
+      }
+    }
+
+    [ivrBlackUserInstanceList: users, ivrBlackUserInstanceTotal: users.totalCount]
   }
 
   def create() {

@@ -19,6 +19,18 @@
   <g:if test="${flash.message}">
     <div class="message" role="status">${flash.message}</div>
   </g:if>
+  <g:form name="myForm" action="list" method="get">
+    <div class="list">
+
+      号段（7位）：<g:textField name="mobilePrefix" value="${params['mobilePrefix']}" maxlength="20" style="width:120px;"/>&nbsp;
+
+      <span class="button"><input class="save" type="submit" value="查询" /></span><br/>
+
+
+    </div>
+  </g:form>
+
+
   <div class="list">
     <table>
       <thead>
@@ -67,7 +79,7 @@
   </div>
 
   <div class="paginateButtons">
-    <g:paginate total="${mobileInfoInstanceTotal}"/>
+    <g:paginate total="${mobileInfoInstanceTotal}" params="${params}"/>
   </div>
 </div>
 </body>

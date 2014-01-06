@@ -14,6 +14,18 @@
 			<g:if test="${flash.message}">
 			<div class="message">${flash.message}</div>
 			</g:if>
+            <g:form name="myForm" action="list" method="get">
+			<div class="list">
+                    <tr>
+                        <td>
+                            角色名<g:textField name="authority" value="${params['authority']}" maxlength="11" style="width:80px;"/>&nbsp;
+                            所属部门 <g:select name="deptId" from="${deptList}"  optionValue="deptName" noSelection="['':'--请选择所属部门--']" optionKey="id" value="${params.deptId}"/>&nbsp;
+                            描述<g:textField name="description" value="${params['description']}" maxlength="20" style="width:80px;"/>&nbsp;
+                            <span class="button"><input class="save" type="submit" value="查询" /></span><br/>
+                        </td>
+                    </tr>
+                </div>
+            </g:form>
 			<div class="list">
 				<table>
 				<thead>
@@ -46,7 +58,7 @@
 			</div>
 
 			<div class="paginateButtons">
-				<g:paginate total="${MagSysRole.count()}" />
+				<g:paginate total="${authoritiesTotalCount}"   params="${params}" />
 			</div>
 		</div>
 	</body>

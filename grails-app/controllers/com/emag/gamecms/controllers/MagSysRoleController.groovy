@@ -1,7 +1,9 @@
 package com.emag.gamecms.controllers
 
+import com.emag.gamecms.domain.system.MagSysDept
 import com.emag.gamecms.domain.system.MagSysRequestmap
 import com.emag.gamecms.domain.system.MagSysRole
+import com.emag.gamecms.domain.system.MagSysUser2
 
 /**
  * Authority Controller.
@@ -20,8 +22,45 @@ class MagSysRoleController {
     if (!params.max) {
       params.max = 10
     }
-    [authorityList: MagSysRole.list(params)]
+      def authorities =  MagSysRole.createCriteria().list(params){
+          //添加查询条件
+          if(params.authority){
+             like('authority',"%${params.authority}%")
   }
+          if(params.deptId){
+            eq('dept.id',Long.parseLong(params.deptId))
+          }
+          if(params.description){
+             like('description',"%${params.description}%")
+          }
+      }
+     MagSysUser2 loginUser = MagSysUser2.get(((MagSysUser2) session.loginUser).id);
+    [deptList: getDeptList(loginUser),authorityList: authorities,authoritiesTotalCount:authorities?.totalCount]
+  }
+    private List<MagSysDept> getDeptList(loginUser) {
+        boolean isAdmin = isAdmin(loginUser);
+        List<MagSysDept> deptList = new ArrayList<MagSysDept>();
+        if (isAdmin) {
+            deptList = MagSysDept.findAll("from MagSysDept d");
+        } else {
+            Long deptId = 0;
+            if (loginUser.dept) {
+                deptId = loginUser.dept.id;
+            }
+            deptList = MagSysDept.findAll("from MagSysDept d where d.id = :aa", ["aa": deptId]);
+        }
+        return deptList;
+    }
+    private boolean isAdmin(loginUser) {
+        boolean flag = false;
+        for (MagSysRole role: loginUser.authorities) {
+            if (role.authority == "ROLE_ADMIN" || role.authority == "ROLE_SYSUSER") {
+                flag = true;
+                break;
+            }
+        }
+        return flag;
+    }
 
   def show = {
     def authority = MagSysRole.get(params.id)
@@ -75,18 +114,27 @@ class MagSysRoleController {
 
     def urls = MagSysRequestmap.createCriteria().list() {
       and {
+        or {
+
         roles.each {
           like("configAttribute", "%" + it.authority + "%")
         }
+
+        }
+
         isNull("father")
       }
+
+
     }
 
     //这个用户有的权限
     def myUrlList = MagSysRequestmap.createCriteria().list() {
       and {
+        or {
         roles.each {
           like("configAttribute", "%" + it.authority + "%")
+        }
         }
         ne("realUrl", "1")
         //eq('status', 1)
@@ -157,8 +205,12 @@ class MagSysRoleController {
     //获取一级菜单
     def urls = MagSysRequestmap.createCriteria().list() {
       and {
+        or {
+
+
         roles.each {
           like("configAttribute", "%" + it.authority + "%")
+        }
         }
         isNull("father")  //父节点为空，表示该菜单为一级菜单
       }
@@ -167,11 +219,15 @@ class MagSysRoleController {
     //这个用户有的权限
     def myUrlList = MagSysRequestmap.createCriteria().list() {
       and {
+
+
+        or {
         roles.each {
           like("configAttribute", "%" + it.authority + "%")
         }
+        }
+
         ne("realUrl", "1")
-        //eq('status', 1)
       }
     }
 

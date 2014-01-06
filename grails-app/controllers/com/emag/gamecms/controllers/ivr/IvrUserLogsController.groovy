@@ -13,7 +13,13 @@ class IvrUserLogsController {
 
   def list(Integer max) {
     params.max = Math.min(max ?: 10, 100)
-    [ivrUserLogsInstanceList: IvrUserLogs.list(params), ivrUserLogsInstanceTotal: IvrUserLogs.count()]
+    def userLogs = IvrUserLogs.createCriteria().list(params) {
+      //添加查询条件
+      if (params.msisdn) {
+        like('msisdn', "%${params.msisdn}%")
+      }
+    }
+    [ivrUserLogsInstanceList: userLogs, ivrUserLogsInstanceTotal: userLogs.totalCount]
   }
 
   def create() {

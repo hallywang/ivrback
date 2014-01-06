@@ -13,7 +13,19 @@ class IvrServiceInfoController {
 
   def list(Integer max) {
     params.max = Math.min(max ?: 10, 100)
-    [ivrServiceInfoInstanceList: IvrServiceInfo.list(params), ivrServiceInfoInstanceTotal: IvrServiceInfo.count()]
+    def  serviceInfos =IvrServiceInfo.createCriteria().list(params){
+      //添加查询条件
+      if(params.serviceId){
+        like('serviceId',"%${params.serviceId}%")
+      }
+      if(params.serviceName){
+        like('serviceName',"%${params.serviceName}%")
+      }
+
+    }
+
+
+    [ivrServiceInfoInstanceList: serviceInfos, ivrServiceInfoInstanceTotal: serviceInfos.totalCount]
   }
 
   def create() {
