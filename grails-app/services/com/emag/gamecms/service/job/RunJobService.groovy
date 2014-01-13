@@ -1,8 +1,8 @@
 package com.emag.gamecms.service.job
 
-import com.emag.gamecms.domain.job.GameCmsJobinfo
 import com.emag.gamecms.domain.job.GameCmsJobRuninfo
-import org.codehaus.groovy.grails.commons.ApplicationHolder
+import com.emag.gamecms.domain.job.GameCmsJobinfo
+import grails.util.Holders
 
 /**
  * Created by IntelliJ IDEA.
@@ -36,8 +36,8 @@ class RunJobService {
 
             try {
 
-                def service = ApplicationHolder.getApplication().getMainContext().getBean(jobservice);
-                service.invokeMethod(jobmethod, null);
+              def service = Holders.getGrailsApplication().getMainContext().getBean(jobservice);
+              service.invokeMethod(jobmethod, null);
 
                 def info = "运行成功";
                 def end = new Date();
@@ -71,8 +71,8 @@ class RunJobService {
                 def jobservice = job.getJobService();
                 def jobmethod = job.getJobMethod();
 
-                def service = ApplicationHolder.getApplication().getMainContext().getBean(jobservice);
-                service.invokeMethod(jobmethod, null);
+              def service = Holders.getGrailsApplication().getMainContext().getBean(jobservice);
+              service.invokeMethod(jobmethod, null);
 
                 def info = "运行成功"
                 def end = new Date();

@@ -24,12 +24,12 @@ environments {
   }
   test {
     dataSource {
-      jndiName = "jdbc/appname"
+      jndiName = "java:comp/env/jdbc/ivrback"
     }
   }
   production {
     dataSource {
-      jndiName = "jdbc/appname"
+      jndiName = "java:comp/env/jdbc/ivrback"
     }
   }
 }

@@ -1,7 +1,7 @@
 package com.emag.job;
 
 import com.emag.gamecms.service.job.RunJobService;
-import org.codehaus.groovy.grails.commons.ApplicationHolder;
+import grails.util.Holders;
 
 /**
  * Created by IntelliJ IDEA.
@@ -21,7 +21,7 @@ public class RunJobThread extends Thread {
     }
 
     public void run() {
-        RunJobService service = (RunJobService) ApplicationHolder.getApplication().getMainContext().getBean("runJobService");
+        RunJobService service = (RunJobService) Holders.getGrailsApplication().getMainContext().getBean("runJobService");
         service.startJob(this.jobId ,this.runInfoId);
     }
 }

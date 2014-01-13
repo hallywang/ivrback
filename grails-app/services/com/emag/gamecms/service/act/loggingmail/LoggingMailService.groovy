@@ -1,16 +1,15 @@
 package com.emag.gamecms.service.act.loggingmail
 
-import org.springframework.mail.SimpleMailMessage
-import javax.mail.internet.MimeMessage
-import org.springframework.mail.javamail.MimeMessageHelper
-import javax.mail.internet.MimeUtility
-import org.springframework.mail.MailSender
-import org.codehaus.groovy.grails.commons.ConfigurationHolder
-import com.vivame.util.TimeUtil
 import com.emag.gamecms.domain.system.GameCmsMailServer
-import com.emag.util.mail.MailSenderDirector
 import com.emag.util.mail.JavaMailSenderBuilder
+import com.emag.util.mail.MailSenderDirector
+import com.vivame.util.TimeUtil
 import org.springframework.jdbc.core.JdbcTemplate
+import org.springframework.mail.MailSender
+import org.springframework.mail.javamail.MimeMessageHelper
+
+import javax.mail.internet.MimeMessage
+import javax.mail.internet.MimeUtility
 
 class LoggingMailService {
   boolean transactional = false
@@ -113,10 +112,10 @@ class LoggingMailService {
 //    String password = 'emag123456!@#'
 //    String localhost = 'www.emagsoftware.cn'
 
-    String host = 'smtp.126.com'
+    String host = 'smtp.139.com'
     int port = 25
-    String username = 'subjordan@126.com'
-    String password = '19830328'
+    String username = '13675180163@139.com'
+    String password = '840301'
     String localhost = 'www.emagsoftware.cn'
 
     MailSenderDirector director = new MailSenderDirector()
@@ -125,10 +124,10 @@ class LoggingMailService {
     MimeMessage msg = mailSender.createMimeMessage()
     MimeMessageHelper helper = new MimeMessageHelper(msg, true, 'utf-8')
     helper.setFrom(username)
-    helper.setTo('linguangfa@emagsoftware.cn')
+    helper.setTo('wanghaili@emagsoftware.cn')
     helper.setSubject('test subject')
     helper.setText('test text')
-    helper.addAttachment('d:/二逼青年.txt', new File('d:/二逼青年.txt'))
+    helper.addAttachment('d:/ua_2.txt', new File('d:/ua_2.txt'))
 
     mailSender.send(msg)
   }
