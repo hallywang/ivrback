@@ -21,6 +21,8 @@ class GameCmsExportSql {
   Date updateTime = new Date()
 
   static constraints = {
+    content(blank: false,nullable: false)
+    sqlDesc(blank: false,nullable: false)
     paramA(nullable: true)
     paramB(nullable: true)
     paramC(nullable: true)
@@ -28,10 +30,8 @@ class GameCmsExportSql {
     paramE(nullable: true)
     paramF(nullable: true)
     paramG(nullable: true)
-    paramG(nullable: true)
     paramI(nullable: true)
     paramJ(nullable: true)
-    sqlDesc(nullable:true)
   }
   static mapping = {
     columns {
