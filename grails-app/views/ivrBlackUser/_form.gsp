@@ -36,7 +36,10 @@
         </label>
     </td>
     <td valign="top" class="value">
-        <g:textField name="scope" required="" value="${ivrBlackUserInstance?.scope}"/>
+      <g:select name="scope" from="${com.emag.gamecms.domain.ivr.IvrServiceInfo.list()}"
+                optionKey="serviceId"
+                value="${ivrBlackUserInstance?.scope}" optionValue="serviceName"
+                noSelection="${['0': '-- 全局 --']}"/>
     </td>
 </tr>
 

@@ -24,11 +24,12 @@
     <div class="list">
 
       手机号：<g:textField name="msisdn" value="${params['msisdn']}" maxlength="20" style="width:120px;"/>&nbsp;
-      是否生效：<g:select name="status" from="${[1, 0]}" valueMessagePrefix="ivrBlackUser.status" value="${params?.status}"/>
-      业务代码：<g:select name="scope" from="${com.emag.gamecms.domain.ivr.IvrServiceInfo.list()}"
+      是否生效：<g:select name="status" from="${[1, 0]}" valueMessagePrefix="ivrBlackUser.status" value="${params?.status}"
+                     noSelection="${['': '--ALL--']}"/>
+      业务代码：<g:select name="scope" from="${serviceList}"
                      optionKey="serviceId"
-                     value="${params?.scope}" optionValue="serviceId"
-                     noSelection="${['0': '-- 全局 --']}"/>
+                     value="${params?.scope}" optionValue="serviceName"
+                     noSelection="${['': '--ALL--']}"/>
 
       <span class="button"><input class="save" type="submit" value="查询"/></span><br/>
 

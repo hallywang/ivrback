@@ -16,7 +16,11 @@ class IvrUserLogsController {
     def userLogs = IvrUserLogs.createCriteria().list(params) {
       //添加查询条件
       if (params.msisdn) {
-        like('msisdn', "%${params.msisdn}%")
+        eq('msisdn', "${params.msisdn}")
+      }
+
+      if(params.serviceId){
+        eq('serviceId', "${params.serviceId}")
       }
     }
     [ivrUserLogsInstanceList: userLogs, ivrUserLogsInstanceTotal: userLogs.totalCount]

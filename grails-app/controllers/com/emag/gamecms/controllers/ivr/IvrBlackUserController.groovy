@@ -1,6 +1,7 @@
 package com.emag.gamecms.controllers.ivr
 
 import com.emag.gamecms.domain.ivr.IvrBlackUser
+import com.emag.gamecms.domain.ivr.IvrServiceInfo
 import org.springframework.dao.DataIntegrityViolationException
 
 class IvrBlackUserController {
@@ -27,7 +28,11 @@ class IvrBlackUserController {
       }
     }
 
-    [ivrBlackUserInstanceList: users, ivrBlackUserInstanceTotal: users.totalCount]
+    List serviceList  = new ArrayList()
+    serviceList.add(['serviceId':'0','serviceName':'全局']) //全局
+    serviceList.addAll(IvrServiceInfo.list())
+
+    [serviceList:serviceList,ivrBlackUserInstanceList: users, ivrBlackUserInstanceTotal: users.totalCount]
   }
 
   def create() {

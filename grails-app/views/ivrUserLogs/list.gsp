@@ -24,6 +24,10 @@
     <div class="list">
 
       手机号：<g:textField name="msisdn" value="${params['msisdn']}" maxlength="20" style="width:120px;"/>&nbsp;
+      业务代码：<g:select name="serviceId" from="${com.emag.gamecms.domain.ivr.IvrServiceInfo.list()}"
+                     optionKey="serviceId"
+                     value="${params?.serviceId}" optionValue="serviceName"
+                     noSelection="${['': '--ALL--']}"/>
 
       <span class="button"><input class="save" type="submit" value="查询" /></span><br/>
 
