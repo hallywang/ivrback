@@ -10,35 +10,32 @@
 
 <body>
 <div class="nav" role="navigation">
-  <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label"
-                                                                             args="[entityName]"/></g:link></span>
-  <span class="menuButton"><g:link class="create" action="batch"><g:message code="default.batch.label"
-                                                                             args="[entityName]"/></g:link></span>
+  <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
+  <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
+
 </div>
 
 <div id="list-ivrBlackUser" class="body" role="main">
-  <h1><g:message code="default.list.label" args="[entityName]"/></h1>
+  <h1><g:message code="default.batch.label" args="[entityName]"/></h1>
   <g:if test="${flash.message}">
     <div class="message" role="status">${flash.message}</div>
   </g:if>
 
-  <g:form name="myForm" action="list" method="get">
-    <div class="list">
+  <g:uploadForm name="myForm" action="batchSave" method="post">
 
-      手机号：<g:textField name="msisdn" value="${params['msisdn']}" maxlength="20" style="width:120px;"/>&nbsp;
-      是否生效：<g:select name="status" from="${[1, 0]}" valueMessagePrefix="ivrBlackUser.status" value="${params?.status}"
-                     noSelection="${['': '--ALL--']}"/>
-      业务代码：<g:select name="scope" from="${serviceList}"
-                     optionKey="serviceId"
-                     value="${params?.scope}" optionValue="serviceName"
-                     noSelection="${['': '--ALL--']}"/>
 
-      <span class="button"><input class="save" type="submit" value="查询"/></span><br/>
-
+    <div class="dialog">
+      <g:render template="batchform"/>
     </div>
-  </g:form>
 
-  <div class="list">
+    <div class="buttons">
+      <span class="button"><g:submitButton name="create" class="save" value="导入" /></span>
+    </div>
+
+  </g:uploadForm>
+
+
+  %{--<div class="list">
     <table>
       <thead>
       <tr>
@@ -93,7 +90,7 @@
 
   <div class="paginateButtons">
     <g:paginate total="${ivrBlackUserInstanceTotal}" params="${params}"/>
-  </div>
+  </div>--}%
 </div>
 </body>
 </html>
