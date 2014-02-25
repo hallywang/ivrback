@@ -38,7 +38,7 @@
         <g:sortableColumn property="id" title="编号"/>
         <g:sortableColumn property="username" title="登录名"/>
         <g:sortableColumn property="userRealName" title="真实姓名"/>
-        <th>SP厂商</th>
+
         <th>所属部门</th>
         <g:sortableColumn property="enabled" title="是否有效"/>
         <g:sortableColumn property="mobile" title="手机号"/>
@@ -54,7 +54,7 @@
             <td>${person.id}</td>
             <td>${person.username?.encodeAsHTML()}</td>
             <td>${person.userRealName?.encodeAsHTML()}</td>
-            <td>${person?.factory?.toString()}</td>
+
             <td>${person?.dept?.deptName}</td>
             <td>${person.enabled?.encodeAsHTML()}</td>
             <td>${person.mobile?.encodeAsHTML()}</td>
