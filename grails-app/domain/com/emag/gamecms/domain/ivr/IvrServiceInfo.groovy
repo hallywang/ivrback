@@ -12,11 +12,13 @@ class IvrServiceInfo {
   Date createTime = new Date()
   Date updateTime = new Date()
 
-  def beforeInsert () {
+
+
+  def beforeInsert() {
     createTime = new Date()
   }
 
-  def beforeUpdate () {
+  def beforeUpdate() {
     updateTime = new Date()
   }
 

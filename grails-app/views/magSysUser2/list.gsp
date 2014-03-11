@@ -49,7 +49,6 @@
       </thead>
       <tbody>
       <g:each in="${personList}" status="i" var="person">
-         <g:if test="${person.username!='root'}">
           <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
             <td>${person.id}</td>
             <td>${person.username?.encodeAsHTML()}</td>
@@ -67,7 +66,6 @@
               </span>
             </td>
           </tr>
-         </g:if>
       </g:each>
       </tbody>
     </table>

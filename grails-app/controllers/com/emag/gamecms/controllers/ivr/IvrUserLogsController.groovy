@@ -22,6 +22,11 @@ class IvrUserLogsController {
       if(params.serviceId){
         eq('serviceId', "${params.serviceId}")
       }
+
+      if(params.operateId){
+        eq('operateId',"${params.operateId}")
+      }
+
     }
     [ivrUserLogsInstanceList: userLogs, ivrUserLogsInstanceTotal: userLogs.totalCount]
   }

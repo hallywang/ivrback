@@ -28,6 +28,9 @@
                      optionKey="serviceId"
                      value="${params?.serviceId}" optionValue="serviceName"
                      noSelection="${['': '--ALL--']}"/>
+     操作类型: <g:select name="operateId" from="${com.emag.constants.IvrConstants.operateIds}"
+                    value="${params?.operateId}"  optionKey="key" optionValue="value"
+                    noSelection="${['': '--ALL--']}"/>
 
       <span class="button"><input class="save" type="submit" value="查询" /></span><br/>
 
@@ -56,6 +59,10 @@
                           title="${message(code: 'ivrUserLogs.endTime.label', default: 'End Time')}"/>
         <g:sortableColumn property="callSecond"
                           title="${message(code: 'ivrUserLogs.callSecond.label', default: 'Call Second')}"/>
+        <g:sortableColumn property="operateId"
+                          title="${message(code: 'ivrUserLogs.operateId.label', default: 'operateId')}"/>
+        <g:sortableColumn property="touchButton"
+                          title="${message(code: 'ivrUserLogs.touchButton.label', default: 'touchButton')}"/>
 
         <g:sortableColumn property="createTime"
                           title="${message(code: 'ivrUserLogs.createTime.label', default: 'Create Time')}"/>
@@ -79,6 +86,10 @@
 
 
           <td>${fieldValue(bean: ivrUserLogsInstance, field: "callSecond")}</td>
+          <td>${fieldValue(bean: ivrUserLogsInstance, field: "operateId")}</td>
+
+          <td>${fieldValue(bean: ivrUserLogsInstance, field: "touchButton")}</td>
+
 
           <td><g:formatDate date="${ivrUserLogsInstance.createTime}"/></td>
 

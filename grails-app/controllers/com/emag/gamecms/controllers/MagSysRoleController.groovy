@@ -22,45 +22,52 @@ class MagSysRoleController {
     if (!params.max) {
       params.max = 10
     }
-      def authorities =  MagSysRole.createCriteria().list(params){
-          //添加查询条件
-          if(params.authority){
-             like('authority',"%${params.authority}%")
-  }
-          if(params.deptId){
-            eq('dept.id',Long.parseLong(params.deptId))
-          }
-          if(params.description){
-             like('description',"%${params.description}%")
-          }
+    MagSysUser2 loginUser = MagSysUser2.get(((MagSysUser2) session.loginUser).id);
+
+    def authorities = MagSysRole.createCriteria().list(params) {
+      //添加查询条件
+      if (params.authority) {
+        like('authority', "%${params.authority}%")
       }
-     MagSysUser2 loginUser = MagSysUser2.get(((MagSysUser2) session.loginUser).id);
-    [deptList: getDeptList(loginUser),authorityList: authorities,authoritiesTotalCount:authorities?.totalCount]
+      if (params.deptId) {
+        eq('dept.id', Long.parseLong(params.deptId))
+      }
+      if (params.description) {
+        like('description', "%${params.description}%")
+      }
+      if(!isAdmin(loginUser)){
+        ne('authority',"ROLE_ADMIN")
+      }
+
+    }
+    [deptList: getDeptList(loginUser), authorityList: authorities, authoritiesTotalCount: authorities?.totalCount]
   }
-    private List<MagSysDept> getDeptList(loginUser) {
-        boolean isAdmin = isAdmin(loginUser);
-        List<MagSysDept> deptList = new ArrayList<MagSysDept>();
-        if (isAdmin) {
-            deptList = MagSysDept.findAll("from MagSysDept d");
-        } else {
-            Long deptId = 0;
-            if (loginUser.dept) {
-                deptId = loginUser.dept.id;
-            }
-            deptList = MagSysDept.findAll("from MagSysDept d where d.id = :aa", ["aa": deptId]);
-        }
-        return deptList;
+
+  private List<MagSysDept> getDeptList(loginUser) {
+    boolean isAdmin = isAdmin(loginUser);
+    List<MagSysDept> deptList = new ArrayList<MagSysDept>();
+    if (isAdmin) {
+      deptList = MagSysDept.findAll("from MagSysDept d");
+    } else {
+      Long deptId = 0;
+      if (loginUser.dept) {
+        deptId = loginUser.dept.id;
+      }
+      deptList = MagSysDept.findAll("from MagSysDept d where d.id = :aa", ["aa": deptId]);
     }
-    private boolean isAdmin(loginUser) {
-        boolean flag = false;
-        for (MagSysRole role: loginUser.authorities) {
-            if (role.authority == "ROLE_ADMIN" || role.authority == "ROLE_SYSUSER") {
-                flag = true;
-                break;
-            }
-        }
-        return flag;
+    return deptList;
+  }
+
+  private boolean isAdmin(loginUser) {
+    boolean flag = false;
+    for (MagSysRole role : loginUser.authorities) {
+      if (role.authority == "ROLE_ADMIN") {
+        flag = true;
+        break;
+      }
     }
+    return flag;
+  }
 
   def show = {
     def authority = MagSysRole.get(params.id)
@@ -116,9 +123,9 @@ class MagSysRoleController {
       and {
         or {
 
-        roles.each {
-          like("configAttribute", "%" + it.authority + "%")
-        }
+          roles.each {
+            like("configAttribute", "%" + it.authority + "%")
+          }
 
         }
 
@@ -132,9 +139,9 @@ class MagSysRoleController {
     def myUrlList = MagSysRequestmap.createCriteria().list() {
       and {
         or {
-        roles.each {
-          like("configAttribute", "%" + it.authority + "%")
-        }
+          roles.each {
+            like("configAttribute", "%" + it.authority + "%")
+          }
         }
         ne("realUrl", "1")
         //eq('status', 1)
@@ -208,9 +215,9 @@ class MagSysRoleController {
         or {
 
 
-        roles.each {
-          like("configAttribute", "%" + it.authority + "%")
-        }
+          roles.each {
+            like("configAttribute", "%" + it.authority + "%")
+          }
         }
         isNull("father")  //父节点为空，表示该菜单为一级菜单
       }
@@ -222,9 +229,9 @@ class MagSysRoleController {
 
 
         or {
-        roles.each {
-          like("configAttribute", "%" + it.authority + "%")
-        }
+          roles.each {
+            like("configAttribute", "%" + it.authority + "%")
+          }
         }
 
         ne("realUrl", "1")
@@ -259,8 +266,7 @@ class MagSysRoleController {
 
       authenticateService.clearCachedRequestmaps()
       redirect(action: show, id: authority.id)
-    }
-    else {
+    } else {
       render(view: 'create', model: [authority: authority])
     }
   }

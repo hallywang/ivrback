@@ -15,6 +15,9 @@ class MagSysUser2Controller {
   // the delete, save and update actions only accept POST requests
   def static allowedMethods = [delete: 'POST', save: 'POST', update: 'POST']
 
+  def ROLE_ADMIN = "ROLE_ADMIN";
+
+
   def index = {
     redirect(action: list, params: params)
   }
@@ -23,26 +26,35 @@ class MagSysUser2Controller {
     if (!params.max) {
       params.max = 10
     }
-     def persons =   MagSysUser2.createCriteria().list(params){
-         //添加查询条件
-         if(params.username){
-             like('username',"%${params.username}%")
-  }
-         if(params.userRealName){
-             like('userRealName',"%${params.userRealName}%")
+    MagSysUser2 loginUser = MagSysUser2.get(((MagSysUser2) session.loginUser).id)
+
+    def persons = MagSysUser2.createCriteria().list(params) {
+      //添加查询条件
+      if (params.username) {
+        like('username', "%${params.username}%")
+      }
+      if (params.userRealName) {
+        like('userRealName', "%${params.userRealName}%")
+      }
+      if (params.deptId) {
+        eq('dept.id', Long.parseLong(params.deptId))
+      }
+      if (params.mobile) {
+        eq('mobile', params.mobile)
+      }
+      if (params.description) {
+        like('description', "%${params.description}%")
+      }
+
+      if(!isAdmin(loginUser)){
+        MagSysRole rootRole = MagSysRole.get(1L)   //获取root角色
+         rootRole.people.each {
+             ne('username',it.username)
          }
-         if(params.deptId){
-             eq('dept.id',Long.parseLong(params.deptId))
-         }
-         if(params.mobile){
-             eq('mobile',params.mobile)
-         }
-         if(params.description){
-             like('description',"%${params.description}%")
-         }
-     }
-     MagSysUser2 loginUser = MagSysUser2.get(((MagSysUser2) session.loginUser).id)
-    [deptList: getDeptList(loginUser),personList: persons,personsTotalCoun:persons?.totalCount]
+      }
+    }
+
+    [deptList: getDeptList(loginUser), personList: persons, personsTotalCoun: persons?.totalCount]
   }
 
   def show = {
@@ -61,15 +73,13 @@ class MagSysUser2Controller {
       //avoid self-delete if the logged-in user is an admin
       if (!(authPrincipal instanceof String) && authPrincipal.username == person.username) {
         flash.message = "You can not delete yourself, please login as another admin and try again"
-      }
-      else {
+      } else {
         //first, delete this person from People_Authorities table.
         MagSysRole.findAll().each { it.removeFromPeople(person) }
         person.delete()
         flash.message = "MagSysUser2 ${params.id} deleted."
       }
-    }
-    else {
+    } else {
       flash.message = "MagSysUser2 not found with id ${params.id}"
     }
 
@@ -89,7 +99,12 @@ class MagSysUser2Controller {
     if (isSysAdminRole(loginUser)) {
       roles = MagSysRole.list();
     } else {   // 非 admin sysuser
-      roles = MagSysRole.findAll("from MagSysRole as m where  m.dept.id=:dept", [dept: loginUser.getDept().id])
+
+      //  非 root用户，不显示  admin   这个角色
+
+
+      roles = MagSysRole.findAll("from MagSysRole as m where m.authority!=:admin and" +
+              "  m.dept.id=:dept", [admin: ROLE_ADMIN, dept: loginUser.getDept().id])
     }
     [person: person, deptList: getDeptList(loginUser), authorityList: roles]
   }
@@ -115,8 +130,7 @@ class MagSysUser2Controller {
       MagSysRole.findAll().each { it.removeFromPeople(person) }
       addRoles(person)
       redirect(action: show, id: person.id)
-    }
-    else {
+    } else {
       render(view: 'edit', model: [person: person, authorityList: MagSysRole.list()])
     }
   }
@@ -128,11 +142,15 @@ class MagSysUser2Controller {
     def roles = []
     if (isSysAdminRole(loginUser)) {
       roles = MagSysRole.list();
-    } else {   // 非 admin sysuser
-      roles = MagSysRole.findAll("from MagSysRole as m where  m.dept.id=:dept", [dept: loginUser.getDept().id])
+    } else {   //  非 root用户，不显示  admin   这个角色
+
+
+      roles = MagSysRole.findAll("from MagSysRole as m where m.authority!=:admin and" +
+              "  m.dept.id=:dept", [admin: ROLE_ADMIN, dept: loginUser.getDept().id])
     }
     [person: person, deptList: getDeptList(loginUser), authorityList: roles]
   }
+
 
   private List<MagSysDept> getDeptList(loginUser) {
     boolean isAdmin = isAdmin(loginUser);
@@ -151,8 +169,8 @@ class MagSysUser2Controller {
 
   private boolean isAdmin(loginUser) {
     boolean flag = false;
-    for (MagSysRole role: loginUser.authorities) {
-      if (role.authority == "ROLE_ADMIN" || role.authority == "ROLE_SYSUSER") {
+    for (MagSysRole role : loginUser.authorities) {
+      if (role.authority == ROLE_ADMIN) {
         flag = true;
         break;
       }
@@ -166,7 +184,7 @@ class MagSysUser2Controller {
 
     user?.authorities?.each {
 
-      if (it.authority == 'ROLE_ADMIN' || it.authority == 'ROLE_SYSUSER') {
+      if (it.authority == ROLE_ADMIN) {
         flag = true
       }
     }
@@ -186,8 +204,7 @@ class MagSysUser2Controller {
     if (person.save()) {
       addRoles(person)
       redirect(action: show, id: person.id)
-    }
-    else {
+    } else {
       render(view: 'create', model: [authorityList: MagSysRole.list(), person: person])
     }
   }
