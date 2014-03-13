@@ -27,6 +27,8 @@ class IvrUserLogsController {
         eq('operateId',"${params.operateId}")
       }
 
+      order("id","desc")
+
     }
     [ivrUserLogsInstanceList: userLogs, ivrUserLogsInstanceTotal: userLogs.totalCount]
   }
