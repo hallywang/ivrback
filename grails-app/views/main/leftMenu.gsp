@@ -23,7 +23,8 @@
 <div style=" width:235px!important; width:245px; height:100%; overflow-x:hidden; overflow-y:visible; border-right:1px solid #013F82; margin:0; padding:0 0 0 10px;">
   <ul id="browser" class="filetree treeview-gray" style="font-size:13px; ">
       <ul>
-      <li style="background-image:none; padding:0 0 5px 0px;"> <img style=" float:left; margin:0px 5px 0px 0px;" src="${request.contextPath}/css/images/homepage.gif" /><span style=" font-size:14px; font-weight:bold; color:#000;">游戏cms系统</span>   </li>
+      <li style="background-image:none; padding:0 0 5px 0px;"> <img style=" float:left; margin:0px 5px 0px 0px;" src="${request.contextPath}/css/images/homepage.gif" /><span style=" font-size:14px; font-weight:bold; color:#000;">
+        语音管理系统</span>   </li>
         <%
           menuService.setMyUrl(myUrlList)
         %>

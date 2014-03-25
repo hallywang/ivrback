@@ -10,8 +10,8 @@
 
 <body>
 <div class="nav" role="navigation">
-  <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label"
-                                                                             args="[entityName]"/></g:link></span>
+ %{-- <span class="menuButton"><g:link class="create" action="create">
+    <g:message code="default.new.label"    args="[entityName]"/></g:link></span>--}%
 </div>
 
 <div id="list-ivrUserLogs" class="body" role="main">

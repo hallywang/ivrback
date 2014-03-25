@@ -71,7 +71,7 @@
             <ul id="browser" class="filetree treeview-gray" style="font-size:11px; ">
               <li>
 
-                <span class="folder">游戏cms系统</span>
+                <span class="folder">语音管理系统</span>
                 <ul>
                   <%
                     menuService.setMyUrl(myUrlList)

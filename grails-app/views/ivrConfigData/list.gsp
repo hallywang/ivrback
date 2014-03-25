@@ -41,8 +41,10 @@
 							<g:sortableColumn property="operateId" title="${message(code: 'ivrConfigData.operateId.label', default: 'Operate Id')}" />
 						
 							<g:sortableColumn property="serviceId" title="${message(code: 'ivrConfigData.serviceId.label', default: 'Service Id')}" />
-						
-							<g:sortableColumn property="content" title="${message(code: 'ivrConfigData.content.label', default: 'Content')}" />
+
+                            <g:sortableColumn property="configType" title="${message(code: 'ivrConfigData.configType.label', default: 'configType')}" />
+
+                            <g:sortableColumn property="content" title="${message(code: 'ivrConfigData.content.label', default: 'Content')}" />
 						
 							<g:sortableColumn property="status" title="${message(code: 'ivrConfigData.status.label', default: 'Status')}" />
 						
@@ -63,8 +65,11 @@
 							<td> ${ivrConfigDataInstance.serviceId} &nbsp; &nbsp;
                               ${com.emag.gamecms.domain.ivr.IvrServiceInfo.findByServiceId(ivrConfigDataInstance.serviceId)?.serviceName}
                             </td>
-						
-							<td>${fieldValue(bean: ivrConfigDataInstance, field: "content")}</td>
+                          <td>${fieldValue(bean: ivrConfigDataInstance, field: "configType")} &nbsp;
+                               ${com.emag.constants.IvrConstants.EXPERT_TYPES[ivrConfigDataInstance.configType]}
+                          </td>
+
+                          <td>${fieldValue(bean: ivrConfigDataInstance, field: "content")}</td>
 						
 							<td>
                               <g:message code="ivrConfigDataInstance.status.${ivrConfigDataInstance.status}"/>
