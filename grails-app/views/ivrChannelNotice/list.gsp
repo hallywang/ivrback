@@ -23,16 +23,16 @@
 						<tr>
 						
 							<g:sortableColumn property="channelCode" title="${message(code: 'ivrChannelNotice.channelCode.label', default: 'Channel Code')}" />
+                            <g:sortableColumn property="serviceId" title="${message(code: 'ivrChannelNotice.serviceId.label', default: 'Service Id')}" />
+
+
+                            <g:sortableColumn property="noticeUrl" title="${message(code: 'ivrChannelNotice.noticeUrl.label', default: 'Notice Url')}" />
 						
-							<g:sortableColumn property="createTime" title="${message(code: 'ivrChannelNotice.createTime.label', default: 'Create Time')}" />
-						
-							<g:sortableColumn property="noticeUrl" title="${message(code: 'ivrChannelNotice.noticeUrl.label', default: 'Notice Url')}" />
-						
-							<g:sortableColumn property="serviceId" title="${message(code: 'ivrChannelNotice.serviceId.label', default: 'Service Id')}" />
-						
-							<g:sortableColumn property="status" title="${message(code: 'ivrChannelNotice.status.label', default: 'Status')}" />
-						
-							<g:sortableColumn property="updateTime" title="${message(code: 'ivrChannelNotice.updateTime.label', default: 'Update Time')}" />
+
+							<g:sortableColumn property="status" title="${message(code: 'status.label', default: 'Status')}" />
+                            <g:sortableColumn property="createTime" title="${message(code: 'createTime.label', default: 'Create Time')}" />
+
+                            <g:sortableColumn property="updateTime" title="${message(code: 'updateTime.label', default: 'Update Time')}" />
 						
 						</tr>
 					</thead>
@@ -41,16 +41,16 @@
 						<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 						
 							<td><g:link action="show" id="${ivrChannelNoticeInstance.id}">${fieldValue(bean: ivrChannelNoticeInstance, field: "channelCode")}</g:link></td>
+                          <td>${fieldValue(bean: ivrChannelNoticeInstance, field: "serviceId")}</td>
+
+
+                          <td>${fieldValue(bean: ivrChannelNoticeInstance, field: "noticeUrl")}</td>
 						
-							<td><g:formatDate date="${ivrChannelNoticeInstance.createTime}" /></td>
-						
-							<td>${fieldValue(bean: ivrChannelNoticeInstance, field: "noticeUrl")}</td>
-						
-							<td>${fieldValue(bean: ivrChannelNoticeInstance, field: "serviceId")}</td>
-						
+
 							<td>${fieldValue(bean: ivrChannelNoticeInstance, field: "status")}</td>
-						
-							<td><g:formatDate date="${ivrChannelNoticeInstance.updateTime}" /></td>
+                          <td><g:formatDate date="${ivrChannelNoticeInstance.createTime}" /></td>
+
+                          <td><g:formatDate date="${ivrChannelNoticeInstance.updateTime}" /></td>
 						
 						</tr>
 					</g:each>

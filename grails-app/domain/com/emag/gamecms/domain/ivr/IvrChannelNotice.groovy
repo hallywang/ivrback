@@ -2,7 +2,7 @@ package com.emag.gamecms.domain.ivr
 
 class IvrChannelNotice {
 
-  String channelCode  //渠道号，可以使用拨打号
+  String channelCode  //渠道号，拨打号码的最后一位或多位
   String serviceId
   String noticeUrl
   Integer status =1 // 0 失效,1 有效
