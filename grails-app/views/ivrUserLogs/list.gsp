@@ -51,7 +51,10 @@
 
         <g:sortableColumn property="callNumber"
                           title="${message(code: 'ivrUserLogs.callNumber.label', default: 'Call Number')}"/>
-
+        <g:sortableColumn property="provinceName"
+                          title="${message(code: 'ivrUserLogs.provinceName.label', default: 'areaCode')}"/>
+        <g:sortableColumn property="cityName"
+                          title="${message(code: 'ivrUserLogs.cityName.label', default: 'areaCode')}"/>
 
         <g:sortableColumn property="callTime"
                           title="${message(code: 'ivrUserLogs.callTime.label', default: 'Call Time')}"/>
@@ -79,8 +82,11 @@
 
           <td>${fieldValue(bean: ivrUserLogsInstance, field: "callNumber")}</td>
 
+          <td>${fieldValue(bean: ivrUserLogsInstance, field: "provinceName")}</td>
+          <td>${fieldValue(bean: ivrUserLogsInstance, field: "cityName")}</td>
 
           <td><g:formatDate date="${ivrUserLogsInstance.callTime}"/></td>
+
 
           <td><g:formatDate date="${ivrUserLogsInstance.endTime}"/></td>
 
