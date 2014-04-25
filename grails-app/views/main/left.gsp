@@ -11,8 +11,7 @@
 			rel="stylesheet" type="text/css" />
 		<link href="<%=request.getContextPath()%>/css/newstyle/middleframe/menu.css"
 			rel="stylesheet" type="text/css" />
-		<script type="text/javascript"
-			src="<%=request.getContextPath()%>/js/jquery/jquery-1.4.3.min.js"></script>
+		<g:javascript library="jquery"/>
 		<script type="text/javascript">
 	$(document).ready( function() {
 		var left = $("#left", parent.document);
