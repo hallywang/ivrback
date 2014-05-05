@@ -22,9 +22,7 @@
 
         <g:sortableColumn property="id" title="${message(code: 'gameCmsExportSql.id.label', default: 'Id')}"/>
         <g:sortableColumn property="sqlDesc" title="${message(code: 'gameCmsExportSql.sqlDesc.label', default: 'sqlDesc')}"/>
-        <g:sortableColumn property="content" title="${message(code: 'gameCmsExportSql.content.label', default: 'content')}"/>
-        <g:sortableColumn property="updateTime" title="${message(code: 'gameCmsExportSql.updateTime.label', default: 'updateTime')}"/>
-
+        <th class="sortable">操作</th>
 
       </tr>
       </thead>
@@ -33,12 +31,9 @@
         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 
           <td><g:link action="show" id="${gameCmsExportSqlInstance.id}">${fieldValue(bean: gameCmsExportSqlInstance, field: "id")}</g:link></td>
+          <td>${gameCmsExportSqlInstance.sqlDesc}</td>
 
-          <td>${fieldValue(bean: gameCmsExportSqlInstance, field: "sqlDesc")}</td>
-
-          <td>${fieldValue(bean: gameCmsExportSqlInstance, field: "content")}</td>
-          <td>${gameCmsExportSqlInstance.updateTime}</td>
-
+          <td><g:link action="show" id="${gameCmsExportSqlInstance.id}">导出</g:link></td>
 
         </tr>
       </g:each>

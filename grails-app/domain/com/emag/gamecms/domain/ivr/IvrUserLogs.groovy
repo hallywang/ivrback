@@ -7,6 +7,7 @@ class IvrUserLogs {
   Date callTime
   Date endTime
   Integer callSecond //持续了多少秒
+  Long fee = 0L
   Date createTime
   String operateId
   String touchButton

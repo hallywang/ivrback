@@ -62,6 +62,9 @@
                           title="${message(code: 'ivrUserLogs.endTime.label', default: 'End Time')}"/>
         <g:sortableColumn property="callSecond"
                           title="${message(code: 'ivrUserLogs.callSecond.label', default: 'Call Second')}"/>
+
+        <g:sortableColumn property="fee"
+                          title="${message(code: 'ivrUserLogs.fee.label', default: 'fee')}"/>
         <g:sortableColumn property="operateId"
                           title="${message(code: 'ivrUserLogs.operateId.label', default: 'operateId')}"/>
         <g:sortableColumn property="touchButton"
@@ -92,6 +95,9 @@
 
 
           <td>${fieldValue(bean: ivrUserLogsInstance, field: "callSecond")}</td>
+          <td>${fieldValue(bean: ivrUserLogsInstance, field: "fee")}</td>
+
+
           <td>${fieldValue(bean: ivrUserLogsInstance, field: "operateId")}</td>
 
           <td>${fieldValue(bean: ivrUserLogsInstance, field: "touchButton")}</td>

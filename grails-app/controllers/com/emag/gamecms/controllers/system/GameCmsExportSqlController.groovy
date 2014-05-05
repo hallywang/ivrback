@@ -1,8 +1,6 @@
 package com.emag.gamecms.controllers.system
 
-import com.emag.ObjectCache
 import com.emag.gamecms.domain.system.GameCmsExportSql
-import com.vivame.util.TimeUtil
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.core.RowCallbackHandler
 
@@ -123,7 +121,11 @@ class GameCmsExportSqlController {
     if (exportSql) {
       sql = exportSql.content
 
-      sql = sql.replaceAll("\\{1\\}", params.paramA).replaceAll("\\{2\\}", params.paramB).replaceAll("\\{3\\}", params.paramC).replaceAll("\\{4\\}", params.paramD).replaceAll("\\{5\\}", params.paramE).replaceAll("\\{6\\}", params.paramF).replaceAll("\\{7\\}", params.paramG).replaceAll("\\{8\\}", params.paramH).replaceAll("\\{9\\}", params.paramI).replaceAll("\\{10\\}", params.paramJ)
+      sql = sql.replaceAll("\\{1\\}", params.paramA?:'').replaceAll("\\{2\\}", params.paramB?:'')
+              .replaceAll("\\{3\\}", params.paramC?:'').replaceAll("\\{4\\}", params.paramD?:'')
+              .replaceAll("\\{5\\}", params.paramE?:'').replaceAll("\\{6\\}", params.paramF?:'')
+              .replaceAll("\\{7\\}", params.paramG?:'').replaceAll("\\{8\\}", params.paramH?:'')
+              .replaceAll("\\{9\\}", params.paramI?:'').replaceAll("\\{10\\}", params.paramJ?:'')
 
       log.info "导出 export sql = $sql"
 
@@ -146,10 +148,11 @@ class GameCmsExportSqlController {
       def ress = new StringBuffer()
       def metas = rs.getMetaData()
       def colcount = metas.getColumnCount()
+
       if (!head) {
         for (i in 1..colcount) {
           head << "\""
-          head << metas.getColumnName(i)
+          head << metas.getColumnLabel(i)
           head << "\""
           head << ","
         }
@@ -157,7 +160,7 @@ class GameCmsExportSqlController {
       }
       for (i in 1..colcount) {
         ress << "\""
-        ress << rs.getString(metas.getColumnName(i))
+        ress << rs.getString(metas.getColumnLabel(i))
         ress << "\""
         ress << ","
       }
@@ -196,158 +199,5 @@ class GameCmsExportSqlController {
 
   }
 
-  /**
-   * 日报
-   */
-  def dateReport = {
-    JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-
-    
-    def yxjldown = []  //游戏精灵日下载  go/downjl
-    def expodown = [] //  expo 日下载   go/downexpo
-    def yxjluse = []   //go/game
-    def expouse = []   //go/expo
-
-    def yxjldownM = []    //游戏精灵月下载  go/downjl
-    def expodownM = [] //  expo 月下载   go/downexpo
-    def yxjluseM = []   //go/game
-    def expouseM = []   //go/expo
-
-     def yxjldownA = []    //游戏精灵总下载  go/downjl
-    def expodownA = [] //  expo 总下载   go/downexpo
-    def yxjluseA = []   //go/game
-    def expouseA = []   //go/expo
-
-    //游戏精灵日下载  go/downjl
-    yxjldown = getQueryList(getDateQuerySql("go/downjl"), jdbcTemplate)
-
-    //expo 日下载   go/downexpo
-    expodown = getQueryList(getDateQuerySql("go/downexpo"), jdbcTemplate)
-
-    //使用 日  go/game
-    yxjluse = getQueryList(getDateQuerySql("go/game"), jdbcTemplate)
-
-    //go/expo
-    expouse = getQueryList(getDateQuerySql("go/expo"), jdbcTemplate)
-
-    yxjldownM = getQueryList(getMonthQuerySql("go/downjl",TimeUtil.getDate(new Date(),"yyyyMM")+"01"), jdbcTemplate)
-    expodownM = getQueryList(getMonthQuerySql("go/downexpo",TimeUtil.getDate(new Date(),"yyyyMM")+"01"), jdbcTemplate)
-    yxjluseM = getQueryList(getMonthQuerySql("go/game",TimeUtil.getDate(new Date(),"yyyyMM")+"01"), jdbcTemplate)
-    expouseM = getQueryList(getMonthQuerySql("go/expo",TimeUtil.getDate(new Date(),"yyyyMM")+"01"), jdbcTemplate)
-
-      yxjldownA = getQueryList(getMonthQuerySql("go/downjl","20100401"), jdbcTemplate)
-    expodownA = getQueryList(getMonthQuerySql("go/downexpo","20100501"), jdbcTemplate)
-    yxjluseA = getQueryList(getMonthQuerySql("go/game","20100401"), jdbcTemplate)
-    expouseA = getQueryList(getMonthQuerySql("go/expo","20100501"), jdbcTemplate)
-
-
-
-    [yxjldown: yxjldown, expodown: expodown, yxjluse: yxjluse, expouse: expouse,
-            yxjldownM: yxjldownM, yxjluseM: yxjluseM, expodownM: expodownM, expouseM: expouseM,
-    yxjldownA:yxjldownA,expodownA:expodownA,yxjluseA:yxjluseA,expouseA:expouseA]
-  }
-  /**
-   * 周报
-   */
-  def weekReport = {
-    def yxjldown = []  //游戏精灵日下载  go/downjl
-    def expodown = [] //  expo 日下载   go/downexpo
-    def yxjluse = []   //go/game
-    def expouse = []   //go/expo
-
-    def yxjldownM = []    //游戏精灵月下载  go/downjl
-    def expodownM = [] //  expo 月下载   go/downexpo
-    def yxjluseM = []   //go/game
-    def expouseM = []   //go/expo
-  }
-
-  /**
-   *  得到按月统计sql
-   * @param url
-   * @return sql
-   */
-  private String getMonthQuerySql(String url,String startTime) {
-
-
-
-    StringBuilder buff = new StringBuilder();
-    buff.append("select b.prov_name, a.cnt");
-    buff.append(" from (select province_id, count(distinct msisdn) cnt");
-    buff.append("	  from game_cms_visit_log");
-    buff.append("	  where substring(optime, 1, 8) >= '$startTime'");
-    buff.append("	  and substring(optime, 1, 8) <= '${TimeUtil.getDate(TimeUtil.getDateBefore(-1), 'yyyyMMdd')}'");
-    buff.append("	  and request_url like '%$url'");
-    buff.append("	  group by province_id) a");
-    buff.append(" left join province b on a.province_id = b.prov_id");
-    buff.append(" where b.prov_name is not null");
-    buff.append(" order by b.prov_name");
-
-    return buff.toString()
-
-
-  }
-
-  /**
-   * 得到按日统计的sql
-   * @param url
-   * @return String sql
-   */
-  private String getDateQuerySql(String url) {
-    StringBuilder buff = new StringBuilder();
-
-    // 游戏精灵日下载  go/downjl
-    buff.append("select b.prov_name, a.cnt");
-    buff.append(" from (select province_id, count(distinct msisdn) cnt");
-    buff.append("	  from game_cms_visit_log");
-    buff.append("	  where substring(optime, 1, 8) = '${TimeUtil.getDate(TimeUtil.getDateBefore(-1), 'yyyyMMdd')}'");
-    buff.append("	  and (request_url like '%${url}')");
-    buff.append("	  group by province_id) a");
-    buff.append(" left join province b on a.province_id = b.prov_id");
-    buff.append(" where b.prov_name is not null");
-    buff.append(" order by b.prov_name");
-
-    return buff.toString()
-  }
-
-  /**
-   * 得到list，根据sql
-   * @param sql
-   * @param list
-   * @return list
-   */
-  private List getQueryList(String sql, JdbcTemplate jdbcTemplate) {
-
-    ObjectCache dateReport = cacheService.getCache("dateReport")
-
-
-    def list = []
-
-    if (!dateReport.get(sql)) {
-      log.info "noreportcache,load from db"
-      // 游戏精灵日下载  go/downjl
-      def rowCallback = {java.sql.ResultSet rs ->
-
-        def metas = rs.getMetaData()
-        def colcount = metas.getColumnCount()
-        String[] col = new String[colcount]
-
-        for (i in 1..colcount) {
-          col[i - 1] = rs.getString(metas.getColumnName(i))
-        }
-
-        list.add(col)
-      } as RowCallbackHandler;
-
-      jdbcTemplate.query(sql, rowCallback)
-
-      dateReport.put(sql, list)
-
-    } else {
-      list = dateReport.get(sql)
-    }
-    log.info "size=${list.size()},sql=$sql"
-
-    return list
-  }
 
 }

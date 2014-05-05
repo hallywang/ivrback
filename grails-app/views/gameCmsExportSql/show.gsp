@@ -44,6 +44,8 @@
             <g:textArea name="content" style="height:100px" value="${gameCmsExportSqlInstance?.content}" readonly="true"/>
           </td>
         </tr>
+
+        <g:if test="${gameCmsExportSqlInstance?.paramA}">
         <tr class="prop">
           <td valign="top" class="name">
             <label for="paramA"><g:message code="gameCmsExportSql.paramA.label" default="Param A"/></label>
@@ -52,8 +54,10 @@
             <g:textField name="paramA" value="${gameCmsExportSqlInstance?.paramA}"/>
           </td>
         </tr>
+        </g:if>
+    <g:if test="${gameCmsExportSqlInstance?.paramB}">
 
-        <tr class="prop">
+      <tr class="prop">
           <td valign="top" class="name">
             <label for="paramB"><g:message code="gameCmsExportSql.paramB.label" default="Param B"/></label>
           </td>
@@ -61,8 +65,10 @@
             <g:textField name="paramB" value="${gameCmsExportSqlInstance?.paramB}"/>
           </td>
         </tr>
+      </g:if>
+    <g:if test="${gameCmsExportSqlInstance?.paramC}">
 
-        <tr class="prop">
+      <tr class="prop">
           <td valign="top" class="name">
             <label for="paramC"><g:message code="gameCmsExportSql.paramC.label" default="Param C"/></label>
           </td>
@@ -70,8 +76,11 @@
             <g:textField name="paramC" value="${gameCmsExportSqlInstance?.paramC}"/>
           </td>
         </tr>
+      </g:if>
 
-        <tr class="prop">
+    <g:if test="${gameCmsExportSqlInstance?.paramD}">
+
+      <tr class="prop">
           <td valign="top" class="name">
             <label for="paramD"><g:message code="gameCmsExportSql.paramD.label" default="Param D"/></label>
           </td>
@@ -79,8 +88,10 @@
             <g:textField name="paramD" value="${gameCmsExportSqlInstance?.paramD}"/>
           </td>
         </tr>
+      </g:if>
+        <g:if test="${gameCmsExportSqlInstance?.paramE}">
 
-        <tr class="prop">
+          <tr class="prop">
           <td valign="top" class="name">
             <label for="paramE"><g:message code="gameCmsExportSql.paramE.label" default="Param E"/></label>
           </td>
@@ -88,8 +99,10 @@
             <g:textField name="paramE" value="${gameCmsExportSqlInstance?.paramE}"/>
           </td>
         </tr>
+        </g:if>
+    <g:if test="${gameCmsExportSqlInstance?.paramF}">
 
-        <tr class="prop">
+      <tr class="prop">
           <td valign="top" class="name">
             <label for="paramF"><g:message code="gameCmsExportSql.paramF.label" default="Param F"/></label>
           </td>
@@ -97,8 +110,10 @@
             <g:textField name="paramF" value="${gameCmsExportSqlInstance?.paramF}"/>
           </td>
         </tr>
+      </g:if>
+    <g:if test="${gameCmsExportSqlInstance?.paramG}">
 
-        <tr class="prop">
+      <tr class="prop">
           <td valign="top" class="name">
             <label for="paramG"><g:message code="gameCmsExportSql.paramG.label" default="Param G"/></label>
           </td>
@@ -106,7 +121,10 @@
             <g:textField name="paramG" value="${gameCmsExportSqlInstance?.paramG}"/>
           </td>
         </tr>
-        <tr class="prop">
+      </g:if>
+    <g:if test="${gameCmsExportSqlInstance?.paramH}">
+
+      <tr class="prop">
           <td valign="top" class="name">
             <label for="paramH"><g:message code="gameCmsExportSql.paramH.label" default="Param H"/></label>
           </td>
@@ -114,8 +132,11 @@
             <g:textField name="paramH" value="${gameCmsExportSqlInstance?.paramH}"/>
           </td>
         </tr>
+      </g:if>
 
-        <tr class="prop">
+    <g:if test="${gameCmsExportSqlInstance?.paramI}">
+
+      <tr class="prop">
           <td valign="top" class="name">
             <label for="paramI"><g:message code="gameCmsExportSql.paramI.label" default="Param I"/></label>
           </td>
@@ -123,8 +144,10 @@
             <g:textField name="paramI" value="${gameCmsExportSqlInstance?.paramI}"/>
           </td>
         </tr>
+    </g:if>
+    <g:if test="${gameCmsExportSqlInstance?.paramJ}">
 
-        <tr class="prop">
+      <tr class="prop">
           <td valign="top" class="name">
             <label for="paramJ"><g:message code="gameCmsExportSql.paramJ.label" default="Param J"/></label>
           </td>
@@ -132,7 +155,7 @@
             <g:textField name="paramJ" value="${gameCmsExportSqlInstance?.paramJ}"/>
           </td>
         </tr>
-
+    </g:if>
         </tbody>
       </table>
     </div>
