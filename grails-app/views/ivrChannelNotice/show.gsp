@@ -54,6 +54,19 @@
                     </td>
                 </tr>
             </g:if>
+
+          <g:if test="${ivrChannelNoticeInstance?.serviceClass}">
+            <tr class="prop">
+              <td valign="top" class="name"><span id="noticeUrl-label" class="property-label">
+                <g:message code="ivrChannelNotice.serviceClass.label" default="serviceClass" /></span></td>
+              <td valign="top" class="value">
+
+                <span class="property-value" aria-labelledby="noticeUrl-label">
+                  <g:fieldValue bean="${ivrChannelNoticeInstance}" field="serviceClass"/></span>
+
+              </td>
+            </tr>
+          </g:if>
             
             <g:if test="${ivrChannelNoticeInstance?.serviceId}">
                 <tr class="prop">

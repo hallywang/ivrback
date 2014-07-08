@@ -27,9 +27,10 @@
 
 
                             <g:sortableColumn property="noticeUrl" title="${message(code: 'ivrChannelNotice.noticeUrl.label', default: 'Notice Url')}" />
-						
+                            <g:sortableColumn property="serviceClass" title="${message(code: 'ivrChannelNotice.serviceClass.label', default: 'serviceClass')}" />
 
-							<g:sortableColumn property="status" title="${message(code: 'status.label', default: 'Status')}" />
+
+                            <g:sortableColumn property="status" title="${message(code: 'status.label', default: 'Status')}" />
                             <g:sortableColumn property="createTime" title="${message(code: 'createTime.label', default: 'Create Time')}" />
 
                             <g:sortableColumn property="updateTime" title="${message(code: 'updateTime.label', default: 'Update Time')}" />
@@ -45,9 +46,10 @@
 
 
                           <td>${fieldValue(bean: ivrChannelNoticeInstance, field: "noticeUrl")}</td>
-						
+                          <td>${fieldValue(bean: ivrChannelNoticeInstance, field: "serviceClass")}</td>
 
-							<td>${fieldValue(bean: ivrChannelNoticeInstance, field: "status")}</td>
+
+                          <td>${fieldValue(bean: ivrChannelNoticeInstance, field: "status")}</td>
                           <td><g:formatDate date="${ivrChannelNoticeInstance.createTime}" /></td>
 
                           <td><g:formatDate date="${ivrChannelNoticeInstance.updateTime}" /></td>

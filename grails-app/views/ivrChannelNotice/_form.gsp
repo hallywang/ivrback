@@ -39,6 +39,18 @@
       <g:textField name="noticeUrl" value="${ivrChannelNoticeInstance?.noticeUrl}"/>
     </td>
   </tr>
+
+  <tr class="prop">
+    <td valign="top" class="name">
+      <label for="serviceClass">
+        <g:message code="ivrChannelNotice.serviceClass.label" default="Notice Url"/>
+
+      </label>
+    </td>
+    <td valign="top" class="value">
+      <g:textField name="serviceClass" value="${ivrChannelNoticeInstance?.serviceClass}"/>
+    </td>
+  </tr>
   <tr class="prop">
     <td valign="top" class="name">
       <label for="status">
