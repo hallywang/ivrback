@@ -5,7 +5,7 @@ class IvrChannelNotice {
   String channelCode  //渠道号，拨打号码的最后一位或多位
   String serviceId
   String noticeUrl
-  String serviceClass //处理实现类
+  String timeFormat //处理实现类
   Integer status =1 // 0 失效,1 有效
   Date createTime = new Date()
   Date updateTime = new Date()
@@ -19,7 +19,7 @@ class IvrChannelNotice {
   }
 
   static constraints = {
-    serviceClass nullable: true
+    timeFormat nullable: true
   }
   static mapping = {
     table 't_ivr_channel_notice'

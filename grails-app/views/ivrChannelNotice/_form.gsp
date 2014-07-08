@@ -42,13 +42,13 @@
 
   <tr class="prop">
     <td valign="top" class="name">
-      <label for="serviceClass">
-        <g:message code="ivrChannelNotice.serviceClass.label" default="Notice Url"/>
+      <label for="timeFormat">
+        <g:message code="ivrChannelNotice.timeFormat.label" default="timeFormat"/>
 
       </label>
     </td>
     <td valign="top" class="value">
-      <g:textField name="serviceClass" value="${ivrChannelNoticeInstance?.serviceClass}"/>
+      <g:textField name="timeFormat" value="${ivrChannelNoticeInstance?.timeFormat}"/>
     </td>
   </tr>
   <tr class="prop">
